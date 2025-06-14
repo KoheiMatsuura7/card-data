@@ -304,7 +304,7 @@ const allCards = [
         "name": "ロイヤルマスク(085/SM-P)",
         "category": "ポケカ",
         "subcategory": "プロモ",
-        "price": 400000,
+        "price": 4000000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b4bcd0f0-2b2e-013e-4c6a-0a58a9feac02/034074_T_ROIYARUMASUKU.jpg"
     },
     {
@@ -376,5 +376,166 @@ const allCards = [
         "subcategory": "UR",
         "price": 35000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a1203430-2a69-013e-d71b-0a58a9feac02/044861_T_HAIPABORU.jpg"
+    },
+    {
+        "name": "ルギアV【SA】(110/098)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a50a8730-2b59-013e-1119-0a58a9feac02/042542_P_RUGIAV.jpg"
+    },
+    {
+        "name": "フウロ(164/XY-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a50b0910-2b59-013e-111a-0a58a9feac02/031466_T_FUURO.jpg"
+    },
+    {
+        "name": "ミュウツー&ミュウGX【SA】(098/094)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a508f9f0-2b59-013e-1116-0a58a9feac02/036978_P_MYUUTSUMYUUGX.jpg"
+    },
+    {
+        "name": "ゲンガー&ミミッキュGX【SA】(103/095)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a50a2c30-2b59-013e-1117-0a58a9feac02/036208_P_GENGAMIMIKKYUGX.jpg"
+    },
+    {
+        "name": "レシラム&リザードンGX【SA】(097/095)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a50a5aa0-2b59-013e-1118-0a58a9feac02/036645_P_RESHIRAMURIZADONGX.jpg"
+    },
+    {
+        "name": "ファイヤー&サンダー&フリーザー【SA】(060/054)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a507f780-2b59-013e-1114-0a58a9feac02/036878_P_FAIYASANDAFURIZAGX.jpg"
+    },
+    {
+        "name": "アルセウス&ディアルガ&パルキア【SA】(100/095)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97db17b0-2b59-013e-1112-0a58a9feac02/037382_P_ARUSEUSUDEIARUGAPARUKIAGX.jpg"
+    },
+    {
+        "name": "N(180/171)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97bc38b0-2b59-013e-110e-0a58a9feac02/035881_T_.jpg"
+    },
+    {
+        "name": "ニンフィアVMAX【SA】(189/S-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97bd2420-2b59-013e-1110-0a58a9feac02/039913_P_EFIVMAX.jpg"
+    },
+    {
+        "name": "カリン(183/171)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97bcebb0-2b59-013e-110f-0a58a9feac02/035884_T_KARIN.jpg"
+    },
+    {
+        "name": "サーナイト&ニンフィアGX【SA】(061/055)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97bd6ef0-2b59-013e-1111-0a58a9feac02/036317_P_SANAITONINFIAGX.jpg"
+    },
+    {
+        "name": "トゲピー&ピィ&ププリンGX【SA】(186/173)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 40000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97b94fd0-2b59-013e-110c-0a58a9feac02/037454_P_TOGEPIPIIPUPURINGX.jpg"
+    },
+    {
+        "name": "ソルガレオ&ルナアーラGX【SA】(063/049)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 40000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97bb7440-2b59-013e-110d-0a58a9feac02/037173_P_SORUGAREORUNAARAGX.jpg"
+    },
+    {
+        "name": "ブースターVMAX【SA】(186/S-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 350000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a3ddd0-2b59-013e-1107-0a58a9feac02/039910_P_BUSUTAVMAX.jpg"
+    },
+    {
+        "name": "コダック(286/SM-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 80000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86c007f0-2b59-013e-1108-0a58a9feac02/035892_P_KODAKKU.jpg"
+    },
+    {
+        "name": "サカキの計画(277/XY-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 800000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86c0d890-2b59-013e-1109-0a58a9feac02/032336_T_SAKAKINOKEIKAKU.jpg"
+    },
+    {
+        "name": "サンダースVMAX【SA】(188/S-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a054c0-2b59-013e-1100-0a58a9feac02/039912_P_SANDASUVMAX.jpg"
+    },
+    {
+        "name": "シャワーズVMAX【SA】(187/S-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a18f00-2b59-013e-1102-0a58a9feac02/039911_P_SHAWAZUVMAX.jpg"
+    },
+    {
+        "name": "ミミッキュ(289/SM-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a36380-2b59-013e-1106-0a58a9feac02/035895_P_MIMIKKYU.jpg"
+    },
+    {
+        "name": "ルザミーネ(055/050)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a0c300-2b59-013e-1101-0a58a9feac02/035674_T_RUZAMINE.jpg"
+    },
+    {
+        "name": "ルザミーネ(120/114)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a1e7a0-2b59-013e-1103-0a58a9feac02/035680_T_RUZAMINE.jpg"
+    },
+    {
+        "name": "オカルトマニア(181/171)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a26250-2b59-013e-1104-0a58a9feac02/035882_T_OKARUTOMANIA.jpg"
+    },
+    {
+        "name": "イーブイGX【SA】(188/173)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 35000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/86a2fb80-2b59-013e-1105-0a58a9feac02/037456_P_IBUIGX.jpg"
     }
 ];
