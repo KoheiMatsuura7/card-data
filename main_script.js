@@ -132,6 +132,10 @@ function renderPagination(totalItems) {
 
     paginationContainer.style.display = 'flex'; // Show if more than one page
 
+    // Define how many page buttons to show around the current page
+    // Adjust these values as needed for mobile vs. desktop readability
+    const maxPageButtons = window.innerWidth <= 768 ? 5 : 10; // 5 for mobile, 10 for PC
+
     // "Prev" button
     const prevButton = document.createElement('button');
     prevButton.textContent = '前へ';
@@ -145,8 +149,36 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(prevButton);
 
-    // Page number buttons
-    for (let i = 1; i <= totalPages; i++) {
+    // Calculate the range of page numbers to display
+    let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
+    let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+    // Adjust startPage if we hit the end to ensure `maxPageButtons` are displayed if possible
+    if (endPage - startPage + 1 < maxPageButtons) {
+        startPage = Math.max(1, endPage - maxPageButtons + 1);
+    }
+
+    // Always show the first page if not in the visible range
+    if (startPage > 1) {
+        const firstPageButton = document.createElement('button');
+        firstPageButton.textContent = '1';
+        firstPageButton.classList.add('page-number');
+        firstPageButton.addEventListener('click', () => {
+            currentPage = 1;
+            applyFiltersAndSort();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        paginationContainer.appendChild(firstPageButton);
+        if (startPage > 2) { // Add ellipsis if there's a gap between 1 and startPage
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            ellipsis.style.margin = '0 5px';
+            paginationContainer.appendChild(ellipsis);
+        }
+    }
+
+    // Page number buttons in the calculated range
+    for (let i = startPage; i <= endPage; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
         pageButton.classList.add('page-number');
@@ -160,6 +192,26 @@ function renderPagination(totalItems) {
         });
         paginationContainer.appendChild(pageButton);
     }
+
+    // Always show the last page if not in the visible range
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) { // Add ellipsis if there's a gap between endPage and totalPages
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            ellipsis.style.margin = '0 5px';
+            paginationContainer.appendChild(ellipsis);
+        }
+        const lastPageButton = document.createElement('button');
+        lastPageButton.textContent = totalPages;
+        lastPageButton.classList.add('page-number');
+        lastPageButton.addEventListener('click', () => {
+            currentPage = totalPages;
+            applyFiltersAndSort();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        paginationContainer.appendChild(lastPageButton);
+    }
+
 
     // "Next" button
     const nextButton = document.createElement('button');
