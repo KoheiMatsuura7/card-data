@@ -176,7 +176,7 @@ function showSelected() {
 
             total += item.qty * item.price;
 
-            printContent += `<img src="${item.imgUrl}" style="max-width:20px;max-height:28px;margin-right:10px;border-radius:4px;object-fit:contain;">${item.name} × ${item.qty} → ¥${(item.qty * item.price).toLocaleString()}<br>`;
+            printContent += `<img src="${item.imgUrl}" style="max-width:60px;max-height:80px;margin-right:10px;border-radius:4px;object-fit:contain;">${item.name} × ${item.qty} → ¥${(item.qty * item.price).toLocaleString()}<br>`;
         }
     }
 
