@@ -133,8 +133,8 @@ function renderPagination(totalItems) {
     paginationContainer.style.display = 'flex'; // Show if more than one page
 
     // Define how many page buttons to show around the current page
-    // Adjust these values as needed for mobile vs. desktop readability
-    const maxPageButtons = window.innerWidth <= 768 ? 5 : 10; // 5 for mobile, 10 for PC
+    // For mobile, aim for fewer buttons (e.g., 3-5 buttons + ellipsis + first/last)
+    const maxVisiblePageButtons = window.innerWidth <= 768 ? 3 : 7; // Adjusted for better mobile display
 
     // "Prev" button
     const prevButton = document.createElement('button');
@@ -150,12 +150,12 @@ function renderPagination(totalItems) {
     paginationContainer.appendChild(prevButton);
 
     // Calculate the range of page numbers to display
-    let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-    let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePageButtons / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePageButtons - 1);
 
-    // Adjust startPage if we hit the end to ensure `maxPageButtons` are displayed if possible
-    if (endPage - startPage + 1 < maxPageButtons) {
-        startPage = Math.max(1, endPage - maxPageButtons + 1);
+    // Adjust startPage if we hit the end to ensure `maxVisiblePageButtons` are displayed if possible
+    if (endPage - startPage + 1 < maxVisiblePageButtons) {
+        startPage = Math.max(1, endPage - maxVisiblePageButtons + 1);
     }
 
     // Always show the first page if not in the visible range
