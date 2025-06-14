@@ -1,77 +1,174 @@
-// 価格取得ユーティリティ
+// Global variables for pagination
+let currentPage = 1; // Current page
+let itemsPerPage; // Items to display per page (dynamic)
+let totalPages = 0; // Total number of pages
+
+// Function to set itemsPerPage based on window width
+function setItemsPerPage() {
+    // Example: Toggle at 768px width
+    if (window.innerWidth <= 768) {
+        itemsPerPage = 20; // For mobile displays
+    } else {
+        itemsPerPage = 40; // For PC displays
+    }
+}
+
+// 価格取得ユーティリティ (Price retrieval utility)
 function getPrice(card) {
     return card.price;
 }
 
-// カード表示関数
-function displayCards(cards) {
+// カード表示関数 (Card display function) - Modified for pagination
+function displayCards(cardsToPaginate) { // Renamed parameter to clarify its purpose
     const cardContainer = document.getElementById('cardContainer');
-    cardContainer.innerHTML = ''; // 既存のカードをクリア
+    cardContainer.innerHTML = ''; // Clear existing cards
 
-    const storedQuantities = JSON.parse(localStorage.getItem('selectedCards') || '{}'); // 保存された数量を読み込む
+    const storedQuantities = JSON.parse(localStorage.getItem('selectedCards') || '{}'); // Load stored quantities
 
-    cards.forEach(card => {
+    // Calculate pagination range
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedCards = cardsToPaginate.slice(startIndex, endIndex); // Get cards for the current page
+
+    if (paginatedCards.length === 0) {
+        cardContainer.innerHTML = '<p style="text-align: center; grid-column: 1 / -1;">該当するカードがありません。</p>';
+        renderPagination(cardsToPaginate.length); // Still render pagination even if no cards for current view
+        updateTotal(); // Update total even if no cards
+        return;
+    }
+
+    paginatedCards.forEach(card => {
         const cardItem = document.createElement('div');
         cardItem.className = 'card-item';
 
-        // 保存された数量があればそれを取得、なければ0
+        // Get stored quantity if available, otherwise 0
         const currentQty = storedQuantities[card.name] ? storedQuantities[card.name].qty : 0;
 
         cardItem.innerHTML = `
-            <img src="${card.imgSrc}" alt="${card.name}">
+            <img src="${card.imgSrc}" alt="${card.name}" loading="lazy">
             <h3>${card.name}</h3>
             <p>買取価格: ¥${card.price.toLocaleString()}</p>
             <div class="qty-wrapper">
                 <button class="qty-minus" data-name="${card.name}">-</button>
-                <input type="number" class="qty-input" value="${currentQty}" min="0" data-name="${card.name}">
+                <input type="number" class="qty-input" value="${currentQty}" min="0" data-name="${card.name}" inputmode="numeric" pattern="[0-9]*" aria-label="${card.name}の数量">
                 <button class="qty-plus" data-name="${card.name}">+</button>
             </div>
         `;
         cardContainer.appendChild(cardItem);
     });
-    updateTotal(); // 表示後に合計金額を更新 (この呼び出しは変わらない)
+
+    updateTotal(); // Update total after displaying cards
+    renderPagination(cardsToPaginate.length); // Render pagination UI
 }
 
-// 合計金額の更新と選択状態の保存
+// 合計金額の更新と選択状態の保存 (Update total amount and save selected state)
 function updateTotal() {
     let total = 0;
-    const qtyInputs = document.querySelectorAll('.qty-input');
-    const selectedCards = JSON.parse(localStorage.getItem('selectedCards') || '{}'); // ローカルストレージから既存のデータを読み込む
+    // Always load from local storage to ensure all previously selected items are included
+    const selectedCards = JSON.parse(localStorage.getItem('selectedCards') || '{}');
 
-    // 現在の表示中の入力値に基づいてselectedCardsオブジェクトを更新
+    // Iterate through all stored selected cards, not just currently displayed ones
+    for (const name in selectedCards) {
+        const item = selectedCards[name];
+        total += item.qty * item.price;
+    }
+
+    // Update quantities for currently visible inputs, and save back to local storage
+    const qtyInputs = document.querySelectorAll('.qty-input');
     qtyInputs.forEach(input => {
         const name = input.dataset.name;
         const qty = parseInt(input.value);
-        if (qty > 0) {
-            const card = allCards.find(c => c.name === name);
-            if (card) {
-                selectedCards[name] = { // カード名でキーを作成
-                    qty: qty,
-                    price: card.price,
-                    imgUrl: card.imgSrc,
-                    name: card.name // カード名も保存しておくと便利
-                };
-            }
+
+        // Find the full card object from allCards if not already in selectedCards
+        const card = allCards.find(c => c.name === name);
+
+        if (qty > 0 && card) {
+            selectedCards[name] = {
+                qty: qty,
+                price: card.price,
+                imgUrl: card.imgSrc,
+                name: card.name
+            };
         } else {
-            // 数量が0になった場合はselectedCardsから削除
+            // If quantity is 0 or card not found (shouldn't happen with proper data), remove from selectedCards
             if (selectedCards[name]) {
                 delete selectedCards[name];
             }
         }
     });
 
-    // selectedCardsオブジェクトに基づいて合計金額を計算
-    for (const name in selectedCards) {
-        total += selectedCards[name].qty * selectedCards[name].price;
-    }
-
     document.getElementById('total-display').textContent = `合計買取金額: ¥${total.toLocaleString()}`;
 
-    // 更新されたselectedCardsオブジェクトをローカルストレージに保存
+    // Save the updated selectedCards object back to local storage
     localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
 }
 
-// カテゴリとサブカテゴリの動的生成
+
+// ページネーションUIの生成と更新 (Generate and update pagination UI)
+function renderPagination(totalItems) {
+    totalPages = Math.ceil(totalItems / itemsPerPage);
+    const paginationContainer = document.getElementById('paginationContainer');
+
+    // Ensure paginationContainer exists before proceeding
+    if (!paginationContainer) {
+        console.error("Pagination container not found. Please add <div id='paginationContainer'></div> to your HTML.");
+        return;
+    }
+
+    paginationContainer.innerHTML = ''; // Clear existing pagination buttons
+
+    if (totalPages <= 1) {
+        paginationContainer.style.display = 'none'; // Hide if only one page
+        return;
+    }
+
+    paginationContainer.style.display = 'flex'; // Show if more than one page
+
+    // "Prev" button
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '前へ';
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            applyFiltersAndSort(); // Re-apply filters and sort to display cards for the new page
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
+        }
+    });
+    paginationContainer.appendChild(prevButton);
+
+    // Page number buttons
+    for (let i = 1; i <= totalPages; i++) {
+        const pageButton = document.createElement('button');
+        pageButton.textContent = i;
+        pageButton.classList.add('page-number');
+        if (i === currentPage) {
+            pageButton.classList.add('active'); // Add 'active' class for the current page
+        }
+        pageButton.addEventListener('click', () => {
+            currentPage = i;
+            applyFiltersAndSort(); // Re-apply filters and sort to display cards for the new page
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
+        });
+        paginationContainer.appendChild(pageButton);
+    }
+
+    // "Next" button
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '次へ';
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            applyFiltersAndSort(); // Re-apply filters and sort to display cards for the new page
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
+        }
+    });
+    paginationContainer.appendChild(nextButton);
+}
+
+
+// カテゴリとサブカテゴリの動的生成 (Dynamic generation of categories and subcategories)
 function populateCategories() {
     const categorySelect = document.getElementById('categorySelect');
     const subcategorySelect = document.getElementById('subcategorySelect');
@@ -94,6 +191,7 @@ function populateCategories() {
     });
 
     categorySelect.addEventListener('change', () => {
+        currentPage = 1; // Reset page on category change
         const selectedCategory = categorySelect.value;
         subcategorySelect.innerHTML = '<option value="">すべてのサブカテゴリ</option>';
         if (selectedCategory && allSubcategories[selectedCategory]) {
@@ -110,10 +208,13 @@ function populateCategories() {
         applyFiltersAndSort();
     });
 
-    subcategorySelect.addEventListener('change', applyFiltersAndSort);
+    subcategorySelect.addEventListener('change', () => {
+        currentPage = 1; // Reset page on subcategory change
+        applyFiltersAndSort();
+    });
 }
 
-// フィルターとソートの適用
+// フィルターとソートの適用 (Apply filters and sort)
 function applyFiltersAndSort() {
     const searchInput = document.getElementById('searchInput').value.toLowerCase();
     const categorySelect = document.getElementById('categorySelect').value;
@@ -135,24 +236,23 @@ function applyFiltersAndSort() {
         filteredCards.sort((a, b) => a.name.localeCompare(b.name, 'ja'));
     }
 
-    displayCards(filteredCards);
+    displayCards(filteredCards); // Display the filtered and sorted cards (pagination handled inside displayCards)
 }
 
-// モーダル表示 (この関数は以前のコードとほぼ同じですが、確認のために掲載)
+// モーダル表示 (Show modal)
 function showSelected() {
     const selectedList = document.getElementById('selectedList');
     const modalTotal = document.getElementById('modalTotal');
     const selectedModal = document.getElementById('selectedModal');
-    selectedList.innerHTML = ''; // クリア
+    selectedList.innerHTML = ''; // Clear
 
-    // ここでローカルストレージから読み込む
     const selectedItems = JSON.parse(localStorage.getItem('selectedCards') || '{}');
     let total = 0;
-    let printContent = ''; // 印刷用コンテンツ
+    let printContent = ''; // Content for printing
 
     for (const name in selectedItems) {
         const item = selectedItems[name];
-        if (item.qty > 0) { // 数量が0より大きいアイテムのみ処理
+        if (item.qty > 0) {
             const li = document.createElement('div');
             li.style.display = 'flex';
             li.style.alignItems = 'center';
@@ -176,11 +276,11 @@ function showSelected() {
 
             total += item.qty * item.price;
 
-            printContent += `<img src="${item.imgUrl}" style="max-width:60px;max-height:80px;margin-right:10px;border-radius:4px;object-fit:contain;">${item.name} × ${item.qty} → ¥${(item.qty * item.price).toLocaleString()}<br>`;
+            printContent += `<div style="display:flex;align-items:center;margin-bottom:8px;"><img src="${item.imgUrl}" style="max-width:60px;max-height:80px;margin-right:10px;border-radius:4px;object-fit:contain;"><span>${item.name} × ${item.qty} → ¥${(item.qty * item.price).toLocaleString()}</span></div>`;
         }
     }
 
-    if (Object.keys(selectedItems).length === 0 || total === 0) { // 選択アイテムがないか合計が0の場合
+    if (Object.keys(selectedItems).length === 0 || total === 0) {
         selectedList.innerHTML = '<p>選択されたカードはありません。</p>';
     }
 
@@ -188,17 +288,17 @@ function showSelected() {
     selectedModal.style.display = 'block';
     selectedModal.setAttribute('aria-hidden', 'false');
 
-    localStorage.setItem('printContent', printContent + `<br>合計金額: ¥${total.toLocaleString()}`);
+    localStorage.setItem('printContent', printContent + `<br><strong>合計金額: ¥${total.toLocaleString()}</strong>`);
 }
 
-// モーダルを閉じる
+// モーダルを閉じる (Close modal)
 function closeModal() {
     const selectedModal = document.getElementById('selectedModal');
     selectedModal.style.display = 'none';
     selectedModal.setAttribute('aria-hidden', 'true');
 }
 
-// 印刷処理
+// 印刷処理 (Print process)
 function printModal() {
     const printContent = localStorage.getItem('printContent');
     if (!printContent) return;
@@ -211,6 +311,7 @@ function printModal() {
         h2 { text-align: center; margin-bottom: 20px; }
         img { vertical-align: middle; }
         span { display: inline-block; margin-left: 5px; }
+        div { display: block; } /* Ensure div for print content renders correctly */
     `);
     printWindow.document.write('</style>');
     printWindow.document.write('</head><body>');
@@ -224,12 +325,13 @@ function printModal() {
 }
 
 
-// イベントリスナーの設定
+// イベントリスナーの設定 (Event listener setup)
 document.addEventListener('DOMContentLoaded', () => {
-    populateCategories(); // カテゴリ選択肢を生成
-    applyFiltersAndSort(); // 初期表示
+    setItemsPerPage(); // Set itemsPerPage based on initial window size
+    populateCategories(); // Generate category options
+    applyFiltersAndSort(); // Initial display of cards
 
-    // イベントリスナーをカードコンテナに委譲
+    // Event delegation for quantity buttons on card container
     document.getElementById('cardContainer').addEventListener('click', (event) => {
         const target = event.target;
         if (target.classList.contains('qty-minus') || target.classList.contains('qty-plus')) {
@@ -243,21 +345,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 qty += 1;
             }
             input.value = qty;
-            updateTotal();
+            updateTotal(); // Update total and save to local storage
         }
     });
 
-    document.getElementById('searchInput').addEventListener('input', applyFiltersAndSort);
-    document.getElementById('sortSelect').addEventListener('change', applyFiltersAndSort);
+    document.getElementById('searchInput').addEventListener('input', () => {
+        currentPage = 1; // Reset page on search input
+        applyFiltersAndSort();
+    });
+    document.getElementById('sortSelect').addEventListener('change', () => {
+        currentPage = 1; // Reset page on sort change
+        applyFiltersAndSort();
+    });
+
     document.getElementById('resetButton').addEventListener('click', () => {
         document.getElementById('searchInput').value = '';
         document.getElementById('categorySelect').value = '';
         document.getElementById('subcategorySelect').innerHTML = '<option value="">すべてのサブカテゴリ</option>';
-        document.getElementById('subcategorySelect').style.display = 'none'; // サブカテゴリを非表示に
-        // !!!ここが追加または変更!!!
-    localStorage.removeItem('selectedCards'); // ローカルストレージをクリア
-    document.querySelectorAll('.qty-input').forEach(input => input.value = 0); // 表示されている数量も0にリセット
+        document.getElementById('subcategorySelect').style.display = 'none'; // Hide subcategory
+        localStorage.removeItem('selectedCards'); // Clear local storage
 
-    applyFiltersAndSort(); // フィルターとソートを再適用して表示を更新
-});
+        // Reset quantities for currently displayed cards (and any other selected cards in local storage)
+        document.querySelectorAll('.qty-input').forEach(input => input.value = 0);
+        // After clearing local storage and visible inputs, re-calculate total from a fresh state
+        updateTotal();
+
+        currentPage = 1; // Reset page on reset button click
+        applyFiltersAndSort(); // Re-apply filters and sort to update display
+    });
+
+    // Window resize event listener with debouncing
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const oldItemsPerPage = itemsPerPage;
+            setItemsPerPage(); // Recalculate itemsPerPage
+            // If itemsPerPage changed (e.g., switched from mobile to PC view)
+            if (oldItemsPerPage !== itemsPerPage) {
+                currentPage = 1; // Reset page to 1
+                applyFiltersAndSort(); // Re-render cards with new pagination
+            }
+        }, 200); // Debounce for 200ms
+    });
 });
