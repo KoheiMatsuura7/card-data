@@ -63,26 +63,19 @@ function displayCards(cardsToPaginate) { // Renamed parameter to clarify its pur
 
 // 合計金額の更新と選択状態の保存 (Update total amount and save selected state)
 function updateTotal() {
-    let total = 0;
-    // Always load from local storage to ensure all previously selected items are included
+    // 1. Load selectedCards from local storage. This will contain ALL previously selected items.
     const selectedCards = JSON.parse(localStorage.getItem('selectedCards') || '{}');
 
-    // Iterate through all stored selected cards, not just currently displayed ones
-    for (const name in selectedCards) {
-        const item = selectedCards[name];
-        total += item.qty * item.price;
-    }
-
-    // Update quantities for currently visible inputs, and save back to local storage
+    // 2. Update selectedCards based on currently displayed inputs.
+    // This loop only modifies entries for cards currently visible on the page.
     const qtyInputs = document.querySelectorAll('.qty-input');
     qtyInputs.forEach(input => {
         const name = input.dataset.name;
         const qty = parseInt(input.value);
-
-        // Find the full card object from allCards if not already in selectedCards
-        const card = allCards.find(c => c.name === name);
+        const card = allCards.find(c => c.name === name); // Find card details
 
         if (qty > 0 && card) {
+            // Update or add the card to selectedCards
             selectedCards[name] = {
                 qty: qty,
                 price: card.price,
@@ -90,17 +83,32 @@ function updateTotal() {
                 name: card.name
             };
         } else {
-            // If quantity is 0 or card not found (shouldn't happen with proper data), remove from selectedCards
+            // If quantity is 0, remove from selectedCards
             if (selectedCards[name]) {
                 delete selectedCards[name];
             }
         }
     });
 
+    // 3. Recalculate total *after* selectedCards has been updated from current inputs.
+    // This ensures all selected cards (visible and hidden on other pages) are included.
+    let total = 0;
+    for (const name in selectedCards) {
+        const item = selectedCards[name];
+        total += item.qty * item.price;
+    }
+
+    // 4. Update the total display
     document.getElementById('total-display').textContent = `合計買取金額: ¥${total.toLocaleString()}`;
 
-    // Save the updated selectedCards object back to local storage
+    // 5. Save the updated selectedCards object back to local storage
     localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
+
+    // Optional: For debugging, uncomment the following lines to see the state
+    // console.log('--- updateTotal Called ---');
+    // console.log('Current selectedCards (after processing inputs):', selectedCards);
+    // console.log('Calculated Total:', total);
+    // console.log('-------------------------');
 }
 
 
