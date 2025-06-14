@@ -14,7 +14,7 @@ const allCards = [
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/97bc38b0-2b59-013e-110e-0a58a9feac02/035881_T_.jpg"
     },
     {
-        "name": "Pikachu with Grey Felt Hat",
+        "name": "Pikachu with Grey Felt Hat(085/SV-P)",
         "category": "ポケカ",
         "subcategory": "プロモ",
         "price": 48000,
@@ -241,14 +241,14 @@ const allCards = [
         "name": "ピカチュウ(208/S-P)",
         "category": "ポケカ",
         "subcategory": "プロモ",
-        "price": 700000,
+        "price": 8300,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/f30d3f30-2a69-013e-ebab-0a58a9feac02/039914_P_PIKACHUU.jpg"
     },
     {
         "name": "ピカチュウ(227/S-P)",
         "category": "ポケカ",
         "subcategory": "プロモ",
-        "price": 70000,
+        "price": 95000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/f30cb190-2a69-013e-ebaa-0a58a9feac02/039954_P_PIKACHUU.jpg"
     },
     {
@@ -530,5 +530,68 @@ const allCards = [
         "subcategory": "プロモ",
         "price": 550000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b4bca000-2b2e-013e-4c69-0a58a9feac02/032337_T_ROKETTODANSANJOU.jpg"
+    },
+    {
+        "name": "20周年記念 ピカチュウ純金製カード",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 5000000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/6160c3f0-2b85-013e-872b-0a58a9feac02/jyunkmin.png"
+    },
+    {
+        "name": "リーリエ(397/SM-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 3500000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/91062dd0-2a6d-013e-45f3-0a58a9feac02/037193_T_RIRIE.jpg"
+    },
+    {
+        "name": "リーリエ(119/114)",
+        "category": "ポケカ",
+        "subcategory": "SR",
+        "price": 700000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/9103b140-2a6d-013e-45f1-0a58a9feac02/035679_T_RIRIE.jpg"
+    },
+    {
+        "name": "メガトウキョーのピカチュウ(204/XY-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 500000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/07aab370-2b86-013e-8731-0a58a9feac02/031639_P_MEGATOUKYONOPIKACHUU.jpg"
+    },
+    {
+        "name": "リザードンEX(276/XY-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 280000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/db3f4330-2b86-013e-8734-0a58a9feac02/032317_P_RIZADONEX.jpg"
+    },
+    {
+        "name": "ピカチュウ(279/XY-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 1300000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/1fbbf140-2b87-013e-8736-0a58a9feac02/032387_P_PIKACHUU.jpg"
+    },
+    {
+        "name": "ミュウツーGX(364/SM-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 1100000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/8736cdd0-2b87-013e-8738-0a58a9feac02/036997_P_MYUUTSUGX.jpg"
+    },
+    {
+        "name": "ミュウツーGX(363/SM-P)",
+        "category": "ポケカ",
+        "subcategory": "プロモ",
+        "price": 145000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/87369ed0-2b87-013e-8737-0a58a9feac02/036996_P_MYUUTSUGX.jpg"
+    },
+    {
+        "name": "Black・Magician",
+        "category": "遊戯王",
+        "subcategory": "UR",
+        "price": 450000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/7841c180-2b31-013e-8430-0a58a9feac02/Black%20Magician.png"
     }
 ];
