@@ -5,8 +5,12 @@ let totalPages = 0; // Total number of pages
 
 // Function to set itemsPerPage based on window width
 function setItemsPerPage() {
-    // 常にPCと同じアイテム数を表示 (スマートフォンとタブレットもPCと同じ表示にするため)
-    itemsPerPage = 20; // For PC displays
+    // 画面幅に応じてアイテム数を切り替え (タブレット/モバイルは2列、PCは4列表示に対応)
+    if (window.innerWidth <= 768) {
+        itemsPerPage = 10; // 768px以下（タブレット・スマホ）では10個
+    } else {
+        itemsPerPage = 20; // 768px超（PC）では20個
+    }
 }
 
 // 価格取得ユーティリティ (Price retrieval utility)
@@ -138,8 +142,10 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(prevButton);
 
-    // ページ番号ボタンの生成ロジック (常にPC版のロジックを適用)
-    const maxVisiblePageNumbers = 5; // 常に5つ表示
+    // ページ番号ボタンの生成ロジック (画面幅に応じて表示数を切り替え)
+    const isMobile = window.innerWidth <= 480; // 480px以下をスマートフォンと定義
+    const maxVisiblePageNumbers = isMobile ? 3 : 5; // スマホでは3つ、PC/タブレットでは5つ表示
+
     let startPage = 1;
     let endPage = totalPages;
 
@@ -354,6 +360,7 @@ function printModal() {
     printWindow.document.write('</head><body>');
     printWindow.document.write('<h2>選択されたカード一覧</h2>');
     printWindow.document.write(printContent);
+    printWindow.document.write('</body></html>');
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
