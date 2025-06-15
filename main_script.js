@@ -56,23 +56,9 @@ function displayCards(cardsToPaginate) { // Renamed parameter to clarify its pur
         `;
         cardContainer.appendChild(cardItem);
 
-        // 新しく生成されたinput要素を取得し、直接編集を完全にブロックする
-        const qtyInput = cardItem.querySelector(`.qty-input[data-name="${card.name}"]`);
-        if (qtyInput) {
-            qtyInput.readOnly = true; // readonlyプロパティを確実に設定
-            
-            // 直接入力イベントをブロック
-            qtyInput.addEventListener('keydown', (e) => e.preventDefault());
-            qtyInput.addEventListener('keypress', (e) => e.preventDefault());
-            qtyInput.addEventListener('input', (e) => e.preventDefault());
-            qtyInput.addEventListener('paste', (e) => e.preventDefault());
-            // タップ時のズーム防止（CSSと合わせて）
-            qtyInput.addEventListener('touchstart', (e) => {
-                // ここでは`e.preventDefault()`は使わない方が良い場合がある
-                // ブラウザのデフォルトのタッチ動作（スクロールなど）を妨げないため
-                // CSSの`touch-action: manipulation;`がズームを防止する役割を果たす
-            }, { passive: false }); // `passive: false`でpreventDefaultが許可される
-        }
+        // input要素への過剰なイベントブロックを削除しました。
+        // readonly属性が直接入力を防ぐため、これらのJSイベントリスナーは不要です。
+        // モバイルでのズーム防止はCSS（font-size: 16px; と touch-action: manipulation;）が担当します。
     });
 
     updateTotal(); // Update total after displaying cards
