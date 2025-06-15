@@ -50,15 +50,22 @@ function displayCards(cardsToPaginate) { // Renamed parameter to clarify its pur
             <p>買取価格: ¥${card.price.toLocaleString()}</p>
             <div class="qty-wrapper">
                 <button class="qty-minus" data-name="${card.name}">-</button>
-                <input type="number" class="qty-input" value="${currentQty}" min="0" data-name="${card.name}" inputmode="numeric" pattern="[0-9]*" aria-label="${card.name}の数量" readonly>
+                <input type="number" class="qty-input" value="${currentQty}" min="0" data-name="${card.name}" inputmode="numeric" pattern="[0-9]*" aria-label="${card.name}の数量">
                 <button class="qty-plus" data-name="${card.name}">+</button>
             </div>
         `;
         cardContainer.appendChild(cardItem);
 
-        // input要素への過剰なイベントブロックを削除しました。
-        // readonly属性が直接入力を防ぐため、これらのJSイベントリスナーは不要です。
-        // モバイルでのズーム防止はCSS（font-size: 16px; と touch-action: manipulation;）が担当します。
+        // 新しく生成されたinput要素を取得し、readonlyプロパティを設定する
+        const qtyInput = cardItem.querySelector(`.qty-input[data-name="${card.name}"]`);
+        if (qtyInput) {
+            qtyInput.readOnly = true; // readonlyプロパティを確実に設定
+            // CSSでfont-size: 16px; と touch-action: manipulation; を適用しているため、
+            // JavaScriptでのさらなるイベントブロックは通常不要です。
+            // これらを追加すると、+ / - ボタンの動作を妨げる可能性があります。
+            // もしズームがまだ発生する場合は、meta viewportの設定やbody/htmlへのtouch-action: manipulation;の検討が必要かもしれませんが、
+            // スクロールなどの他のタッチジェスチャーに影響する可能性があるため注意が必要です。
+        }
     });
 
     updateTotal(); // Update total after displaying cards
@@ -356,7 +363,6 @@ function printModal() {
     printWindow.document.write('</head><body>');
     printWindow.document.write('<h2>選択されたカード一覧</h2>');
     printWindow.document.write(printContent);
-    printWindow.document.write('</body></html>');
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
@@ -375,7 +381,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target.classList.contains('qty-minus') || target.classList.contains('qty-plus')) {
             const name = target.dataset.name;
             const input = document.querySelector(`.qty-input[data-name="${name}"]`);
-            let qty = parseInt(input.value);
+            
+            // デバッグログを追加
+            console.log('Button clicked:', target.classList.contains('qty-plus') ? '+' : '-');
+            console.log('Current input value before change:', input ? input.value : 'Input element not found!');
+
+            let qty = input ? parseInt(input.value) : 0; // inputがnullの場合を考慮
+
+            if (isNaN(qty)) { // input.valueが有効な数値でない場合
+                qty = 0;
+            }
 
             if (target.classList.contains('qty-minus')) {
                 qty = Math.max(0, qty - 1);
@@ -383,10 +398,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 上限20枚のロジックを再確認し、適用
                 if (qty < 20) { // 20枚未満の場合のみ増やす
                     qty += 1;
+                } else {
+                    console.log('Quantity already at maximum (20).');
                 }
             }
-            input.value = qty;
-            updateTotal(); // Update total and save to local storage
+            
+            if (input) { // input要素が存在する場合のみ値を設定
+                input.value = qty;
+                console.log('New input value after change:', input.value);
+                updateTotal(); // Update total and save to local storage
+            } else {
+                console.error('Failed to find input element for quantity update.');
+            }
         }
     });
 
