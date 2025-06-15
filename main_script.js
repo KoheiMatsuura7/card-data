@@ -5,11 +5,11 @@ let totalPages = 0; // Total number of pages
 
 // Function to set itemsPerPage based on window width
 function setItemsPerPage() {
-    // Example: Toggle at 768px width
+    // 画面幅に応じてアイテム数を切り替え (タブレット/モバイルは2列、PCは4列表示に対応)
     if (window.innerWidth <= 768) {
-        itemsPerPage = 20; // For mobile displays
+        itemsPerPage = 10; // 768px以下（タブレット・スマホ）では10個
     } else {
-        itemsPerPage = 40; // For PC displays
+        itemsPerPage = 20; // 768px超（PC）では20個
     }
 }
 
@@ -55,21 +55,10 @@ function displayCards(cardsToPaginate) { // Renamed parameter to clarify its pur
             </div>
         `;
         cardContainer.appendChild(cardItem);
-
-        // 新しく生成されたinput要素を取得し、readonlyプロパティを設定する
-        const qtyInput = cardItem.querySelector(`.qty-input[data-name="${card.name}"]`);
-        if (qtyInput) {
-            qtyInput.readOnly = true; // readonlyプロパティを確実に設定
-            // CSSでfont-size: 16px; と touch-action: manipulation; を適用しているため、
-            // JavaScriptでのさらなるイベントブロックは通常不要です。
-            // これらを追加すると、+ / - ボタンの動作を妨げる可能性があります。
-            // もしズームがまだ発生する場合は、meta viewportの設定やbody/htmlへのtouch-action: manipulation;の検討が必要かもしれませんが、
-            // スクロールなどの他のタッチジェスチャーに影響する可能性があるため注意が必要です。
-        }
     });
 
     updateTotal(); // Update total after displaying cards
-    renderPagination(cardsToPaginated.length); // Render pagination UI
+    renderPagination(cardsToPaginate.length); // Render pagination UI
 }
 
 // 合計金額の更新と選択状態の保存 (Update total amount and save selected state)
@@ -135,7 +124,10 @@ function renderPagination(totalItems) {
         return;
     }
 
-    paginationContainer.style.display = 'flex'; // Show if more than one page
+    // ページネーションコンテナのスタイル設定 (CSSで一元管理されるべきだが、動的にflexを設定)
+    paginationContainer.style.display = 'flex';
+    paginationContainer.style.justifyContent = 'center';
+    paginationContainer.style.gap = '10px'; // ボタン間のギャップ
 
     // "Prev" button
     const prevButton = document.createElement('button');
@@ -150,31 +142,37 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(prevButton);
 
-    // ページ番号ボタンの生成ロジック (スマホ版で表示を省略)
-    const maxPageButtonsToShow = 5; // 表示するページボタンの最大数 (例: 現在のページとその前後2ページ)
+    // ページ番号ボタンの生成ロジック (画面幅に応じて表示数を切り替え)
+    const isMobile = window.innerWidth <= 480; // 480px以下をスマートフォンと定義
+    const maxVisiblePageNumbers = isMobile ? 3 : 5; // スマホでは3つ、PC/タブレットでは5つ表示
+
     let startPage = 1;
     let endPage = totalPages;
 
-    if (totalPages > maxPageButtonsToShow) {
-        // 現在のページを中心に表示範囲を決定
-        startPage = Math.max(1, currentPage - Math.floor(maxPageButtonsToShow / 2));
-        endPage = Math.min(totalPages, startPage + maxPageButtonsToShow - 1);
+    if (totalPages > maxVisiblePageNumbers) {
+        // 現在のページを中心に表示範囲を計算
+        startPage = Math.max(1, currentPage - Math.floor(maxVisiblePageNumbers / 2));
+        endPage = startPage + maxVisiblePageNumbers - 1;
 
-        // 端のページネーションの調整 (例: 最後のページ群を表示する場合)
-        if (endPage - startPage + 1 < maxPageButtonsToShow) {
-            startPage = Math.max(1, totalPages - maxPageButtonsToShow + 1);
+        // 終わりに近づいたら調整
+        if (endPage > totalPages) {
+            endPage = totalPages;
+            startPage = Math.max(1, endPage - maxVisiblePageNumbers + 1);
+        }
+        // 始めに近づいたら調整
+        if (startPage < 1) {
+            startPage = 1;
+            endPage = Math.min(totalPages, maxVisiblePageNumbers);
         }
     }
 
-    // 先頭に省略記号を追加
     if (startPage > 1) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.classList.add('ellipsis');
-        paginationContainer.appendChild(ellipsis);
+        const ellipsisStart = document.createElement('span');
+        ellipsisStart.textContent = '...';
+        ellipsisStart.classList.add('ellipsis'); // CSSでスタイルを適用するため
+        paginationContainer.appendChild(ellipsisStart);
     }
 
-    // ページ番号ボタン
     for (let i = startPage; i <= endPage; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
@@ -190,12 +188,11 @@ function renderPagination(totalItems) {
         paginationContainer.appendChild(pageButton);
     }
 
-    // 末尾に省略記号を追加
     if (endPage < totalPages) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.classList.add('ellipsis');
-        paginationContainer.appendChild(ellipsis);
+        const ellipsisEnd = document.createElement('span');
+        ellipsisEnd.textContent = '...';
+        ellipsisEnd.classList.add('ellipsis'); // CSSでスタイルを適用するため
+        paginationContainer.appendChild(ellipsisEnd);
     }
 
     // "Next" button
@@ -363,6 +360,7 @@ function printModal() {
     printWindow.document.write('</head><body>');
     printWindow.document.write('<h2>選択されたカード一覧</h2>');
     printWindow.document.write(printContent);
+    printWindow.document.write('</body></html>');
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
@@ -381,35 +379,15 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target.classList.contains('qty-minus') || target.classList.contains('qty-plus')) {
             const name = target.dataset.name;
             const input = document.querySelector(`.qty-input[data-name="${name}"]`);
-            
-            // デバッグログを追加
-            console.log('Button clicked:', target.classList.contains('qty-plus') ? '+' : '-');
-            console.log('Current input value before change:', input ? input.value : 'Input element not found!');
-
-            let qty = input ? parseInt(input.value) : 0; // inputがnullの場合を考慮
-
-            if (isNaN(qty)) { // input.valueが有効な数値でない場合
-                qty = 0;
-            }
+            let qty = parseInt(input.value);
 
             if (target.classList.contains('qty-minus')) {
                 qty = Math.max(0, qty - 1);
             } else if (target.classList.contains('qty-plus')) {
-                // 上限20枚のロジックを再確認し、適用
-                if (qty < 20) { // 20枚未満の場合のみ増やす
-                    qty += 1;
-                } else {
-                    console.log('Quantity already at maximum (20).');
-                }
+                qty += 1;
             }
-            
-            if (input) { // input要素が存在する場合のみ値を設定
-                input.value = qty;
-                console.log('New input value after change:', input.value);
-                updateTotal(); // Update total and save to local storage
-            } else {
-                console.error('Failed to find input element for quantity update.');
-            }
+            input.value = qty;
+            updateTotal(); // Update total and save to local storage
         }
     });
 
