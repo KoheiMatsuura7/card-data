@@ -1,4 +1,28 @@
 const allCards = [
+  {
+    id: "ygo-rc01-box", // ★追加
+    name: "遊戯王 レアリティコレクション -クォーターセンチュリーエディション- BOX",
+    category: "遊戯王",
+    subcategory: "未開封BOX",
+    image: "https://koheimatsuura7.github.io/card-data/images/yugioh/rarity_collection_box.jpg",
+    price: 6000
+  },
+  {
+    id: "pkm-sv5k-mask", // ★追加
+    name: "ポケモンカードゲーム スカーレット&バイオレット 拡張パック 変幻の仮面 BOX",
+    category: "ポケカ",
+    subcategory: "未開封BOX",
+    image: "https://koheimatsuura7.github.io/card-data/images/pokemon/mask_box.jpg",
+    price: 5000
+  },
+  {
+    id: "ygo-dmg", // ★追加
+    name: "ブラックマジシャンガール",
+    category: "遊戯王",
+    subcategory: "シングルカード",
+    image: "https://koheimatsuura7.github.io/card-data/images/yugioh/black_magician_girl.jpg",
+    price: 10000
+  },
     {
         "name": "MサチコEX(298/XY-P)",
         "category": "ポケカ",
