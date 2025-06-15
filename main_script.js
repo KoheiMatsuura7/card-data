@@ -139,24 +139,35 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(prevButton);
 
-    // Page number buttons (スマホ版で表示を省略)
-    const maxPageButtons = 5; // 表示するページボタンの最大数 (例: 現在のページとその前後2ページ)
-    let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-    let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+    // ページ番号ボタンの生成ロジック (スマホ版で表示を省略)
+    // モバイルの場合のみページボタンを省略
+    const isMobile = window.innerWidth <= 768;
+    const maxVisiblePageNumbers = isMobile ? 3 : 5; // モバイルでは3つ、PCでは5つ表示（前後の「...」を含まず）
+    let startPage = 1;
+    let endPage = totalPages;
 
-    // 端のページネーションの調整: maxPageButtons個のボタンを表示できる場合
-    if (endPage - startPage + 1 < maxPageButtons) {
-        startPage = Math.max(1, endPage - maxPageButtons + 1);
+    if (totalPages > maxVisiblePageNumbers) {
+        const half = Math.floor(maxVisiblePageNumbers / 2);
+        startPage = Math.max(1, currentPage - half);
+        endPage = Math.min(totalPages, currentPage + half);
+
+        // adjust startPage if we are near the end
+        if (endPage - startPage + 1 < maxVisiblePageNumbers) {
+            startPage = Math.max(1, totalPages - maxVisiblePageNumbers + 1);
+            endPage = totalPages; // endPageも再調整
+        }
+        // adjust endPage if we are near the beginning
+        if (startPage === 1 && endPage - startPage + 1 < maxVisiblePageNumbers) {
+             endPage = Math.min(totalPages, startPage + maxVisiblePageNumbers -1);
+        }
     }
-    // 再度endPageを計算し直す（startPageが動いた場合があるため）
-    endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
 
 
     if (startPage > 1) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.classList.add('ellipsis'); // CSSでスタイルを適用するため
-        paginationContainer.appendChild(ellipsis);
+        const ellipsisStart = document.createElement('span');
+        ellipsisStart.textContent = '...';
+        ellipsisStart.classList.add('ellipsis'); // CSSでスタイルを適用するため
+        paginationContainer.appendChild(ellipsisStart);
     }
 
     for (let i = startPage; i <= endPage; i++) {
@@ -175,10 +186,10 @@ function renderPagination(totalItems) {
     }
 
     if (endPage < totalPages) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.classList.add('ellipsis'); // CSSでスタイルを適用するため
-        paginationContainer.appendChild(ellipsis);
+        const ellipsisEnd = document.createElement('span');
+        ellipsisEnd.textContent = '...';
+        ellipsisEnd.classList.add('ellipsis'); // CSSでスタイルを適用するため
+        paginationContainer.appendChild(ellipsisEnd);
     }
 
     // "Next" button
