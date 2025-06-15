@@ -124,7 +124,10 @@ function renderPagination(totalItems) {
         return;
     }
 
-    paginationContainer.style.display = 'flex'; // Show if more than one page
+    // ページネーションコンテナのスタイル設定 (CSSで一元管理されるべきだが、動的にflexを設定)
+    paginationContainer.style.display = 'flex';
+    paginationContainer.style.justifyContent = 'center';
+    paginationContainer.style.gap = '10px'; // ボタン間のギャップ
 
     // "Prev" button
     const prevButton = document.createElement('button');
@@ -140,25 +143,25 @@ function renderPagination(totalItems) {
     paginationContainer.appendChild(prevButton);
 
     // ページ番号ボタンの生成ロジック (スマホ版で表示を省略)
-    // モバイルの場合のみページボタンを省略
     const isMobile = window.innerWidth <= 768;
     const maxVisiblePageNumbers = isMobile ? 3 : 5; // モバイルでは3つ、PCでは5つ表示（前後の「...」を含まず）
     let startPage = 1;
     let endPage = totalPages;
 
     if (totalPages > maxVisiblePageNumbers) {
-        const half = Math.floor(maxVisiblePageNumbers / 2);
-        startPage = Math.max(1, currentPage - half);
-        endPage = Math.min(totalPages, currentPage + half);
+        // 現在のページを中心に表示範囲を計算
+        startPage = Math.max(1, currentPage - Math.floor(maxVisiblePageNumbers / 2));
+        endPage = startPage + maxVisiblePageNumbers - 1;
 
-        // adjust startPage if we are near the end
-        if (endPage - startPage + 1 < maxVisiblePageNumbers) {
-            startPage = Math.max(1, totalPages - maxVisiblePageNumbers + 1);
-            endPage = totalPages; // endPageも再調整
+        // 終わりに近づいたら調整
+        if (endPage > totalPages) {
+            endPage = totalPages;
+            startPage = Math.max(1, endPage - maxVisiblePageNumbers + 1);
         }
-        // adjust endPage if we are near the beginning
-        if (startPage === 1 && endPage - startPage + 1 < maxVisiblePageNumbers) {
-             endPage = Math.min(totalPages, startPage + maxVisiblePageNumbers -1);
+        // 始めに近づいたら調整
+        if (startPage < 1) {
+            startPage = 1;
+            endPage = Math.min(totalPages, maxVisiblePageNumbers);
         }
     }
 
