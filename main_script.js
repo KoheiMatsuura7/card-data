@@ -139,8 +139,27 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(prevButton);
 
-    // Page number buttons
-    for (let i = 1; i <= totalPages; i++) {
+    // Page number buttons (スマホ版で表示を省略)
+    const maxPageButtons = 5; // 表示するページボタンの最大数 (例: 現在のページとその前後2ページ)
+    let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
+    let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+    // 端のページネーションの調整: maxPageButtons個のボタンを表示できる場合
+    if (endPage - startPage + 1 < maxPageButtons) {
+        startPage = Math.max(1, endPage - maxPageButtons + 1);
+    }
+    // 再度endPageを計算し直す（startPageが動いた場合があるため）
+    endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+
+    if (startPage > 1) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.classList.add('ellipsis'); // CSSでスタイルを適用するため
+        paginationContainer.appendChild(ellipsis);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
         pageButton.classList.add('page-number');
@@ -153,6 +172,13 @@ function renderPagination(totalItems) {
             window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
         });
         paginationContainer.appendChild(pageButton);
+    }
+
+    if (endPage < totalPages) {
+        const ellipsis = document.createElement('span');
+        ellipsis.textContent = '...';
+        ellipsis.classList.add('ellipsis'); // CSSでスタイルを適用するため
+        paginationContainer.appendChild(ellipsis);
     }
 
     // "Next" button
@@ -320,7 +346,6 @@ function printModal() {
     printWindow.document.write('</head><body>');
     printWindow.document.write('<h2>選択されたカード一覧</h2>');
     printWindow.document.write(printContent);
-    printWindow.document.write('</body></html>');
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
