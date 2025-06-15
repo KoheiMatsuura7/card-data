@@ -678,5 +678,13 @@ const allCards = [
         "subcategory": "UR",
         "image": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/7841c180-2b31-013e-8430-0a58a9feac02/Black%20Magician.png",
         "price": 450000
+    },
+    {
+        "id": 10001,
+        "name": "変化の仮面",
+        "category": "ポケカ",
+        "subcategory": "未開封BOX",
+        "image": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/3f8383f0-2c0a-013e-f186-0a58a9feac02/71SyXDvePnL._UF894,1000_QL80_.jpg",
+        "price": 7000
     }
 ];
