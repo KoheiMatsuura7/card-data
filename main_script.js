@@ -7,9 +7,9 @@ let totalPages = 0; // Total number of pages
 function setItemsPerPage() {
     // Example: Toggle at 768px width
     if (window.innerWidth <= 768) {
-        itemsPerPage = 20; // For mobile displays
+        itemsPerPage = 10; // For mobile displays
     } else {
-        itemsPerPage = 40; // For PC displays
+        itemsPerPage = 20; // For PC displays
     }
 }
 
