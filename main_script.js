@@ -7,9 +7,9 @@ let totalPages = 0; // Total number of pages
 function setItemsPerPage() {
     // Example: Toggle at 768px width
     if (window.innerWidth <= 768) {
-        itemsPerPage = 20; // For mobile displays
+        itemsPerPage = 10; // For mobile displays
     } else {
-        itemsPerPage = 40; // For PC displays
+        itemsPerPage = 20; // For PC displays
     }
 }
 
@@ -63,27 +63,20 @@ function displayCards(cardsToPaginate) { // Renamed parameter to clarify its pur
 
 // 合計金額の更新と選択状態の保存 (Update total amount and save selected state)
 function updateTotal() {
-    let total = 0;
-
-    // Always load from local storage to ensure all previously selected items are included
+    // まずローカルストレージから既存の選択済みカードデータを読み込みます。
     const selectedCards = JSON.parse(localStorage.getItem('selectedCards') || '{}');
 
-    // Iterate through all stored selected cards, not just currently displayed ones
-    for (const name in selectedCards) {
-        const item = selectedCards[name];
-        total += item.qty * item.price;
-    }
-
-    // Update quantities for currently visible inputs, and save back to local storage
+    // 画面に表示されている入力フィールドの値に基づいて、その selectedCards オブジェクトを更新します。
+    // これにより、現在表示されているカードの数量変更が selectedCards に反映されます。
     const qtyInputs = document.querySelectorAll('.qty-input');
     qtyInputs.forEach(input => {
         const name = input.dataset.name;
         const qty = parseInt(input.value);
-
-        // Find the full card object from allCards if not already in selectedCards
+        // allCardsはグローバル変数として定義されていると仮定します。
         const card = allCards.find(c => c.name === name);
 
         if (qty > 0 && card) {
+            // 数量が0より大きい場合は、selectedCardsにカード情報を追加または更新
             selectedCards[name] = {
                 qty: qty,
                 price: card.price,
@@ -91,16 +84,25 @@ function updateTotal() {
                 name: card.name
             };
         } else {
-            // If quantity is 0 or card not found (shouldn't happen with proper data), remove from selectedCards
+            // 数量が0の場合、またはカードが見つからない場合はselectedCardsから削除
             if (selectedCards[name]) {
                 delete selectedCards[name];
             }
         }
     });
 
+    // selectedCards オブジェクト全体を使って合計金額を計算します。
+    // これにより、表示中のカードも、他のページにあり現在表示されていないが以前に選択されたカードも、
+    // すべて正確に合計に反映されるようになります。
+    let total = 0;
+    for (const name in selectedCards) {
+        const item = selectedCards[name];
+        total += item.qty * item.price;
+    }
+
     document.getElementById('total-display').textContent = `合計買取金額: ¥${total.toLocaleString()}`;
 
-    // Save the updated selectedCards object back to local storage
+    // 更新された selectedCards オブジェクトをローカルストレージに保存
     localStorage.setItem('selectedCards', JSON.stringify(selectedCards));
 }
 
