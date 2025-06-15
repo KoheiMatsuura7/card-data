@@ -383,8 +383,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (target.classList.contains('qty-minus')) {
                 qty = Math.max(0, qty - 1);
             } else if (target.classList.contains('qty-plus')) {
-                // 上限20枚のロジック
-                if (qty < 20) { // 20枚未満の場合のみ増やす
+                // 上限10枚のロジックに変更
+                if (qty < 10) { // 10枚未満の場合のみ増やす
                     qty += 1;
                 }
             }
