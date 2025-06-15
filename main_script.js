@@ -5,12 +5,8 @@ let totalPages = 0; // Total number of pages
 
 // Function to set itemsPerPage based on window width
 function setItemsPerPage() {
-    // Example: Toggle at 768px width
-    if (window.innerWidth <= 768) {
-        itemsPerPage = 10; // For mobile displays
-    } else {
-        itemsPerPage = 20; // For PC displays
-    }
+    // 常にPCと同じアイテム数を表示 (スマートフォンとタブレットもPCと同じ表示にするため)
+    itemsPerPage = 20; // For PC displays
 }
 
 // 価格取得ユーティリティ (Price retrieval utility)
@@ -142,9 +138,8 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(prevButton);
 
-    // ページ番号ボタンの生成ロジック (スマホ版で表示を省略)
-    const isMobile = window.innerWidth <= 768;
-    const maxVisiblePageNumbers = isMobile ? 3 : 5; // モバイルでは3つ、PCでは5つ表示（前後の「...」を含まず）
+    // ページ番号ボタンの生成ロジック (常にPC版のロジックを適用)
+    const maxVisiblePageNumbers = 5; // 常に5つ表示
     let startPage = 1;
     let endPage = totalPages;
 
@@ -164,7 +159,6 @@ function renderPagination(totalItems) {
             endPage = Math.min(totalPages, maxVisiblePageNumbers);
         }
     }
-
 
     if (startPage > 1) {
         const ellipsisStart = document.createElement('span');
