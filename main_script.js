@@ -157,11 +157,26 @@ function renderPagination(totalItems) {
 
     // 先頭に省略記号を追加
     if (startPage > 1) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.classList.add('ellipsis');
-        paginationContainer.appendChild(ellipsis);
+    // 1ページ目のボタン
+    const firstPageButton = document.createElement('button');
+    firstPageButton.textContent = '1';
+    firstPageButton.classList.add('page-number');
+    if (1 === currentPage) {
+        firstPageButton.classList.add('active');
     }
+    firstPageButton.addEventListener('click', () => {
+        currentPage = 1;
+        applyFiltersAndSort();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    paginationContainer.appendChild(firstPageButton);
+
+    // 省略記号
+    const ellipsis = document.createElement('span');
+    ellipsis.textContent = '...';
+    ellipsis.classList.add('ellipsis');
+    paginationContainer.appendChild(ellipsis);
+}
 
     // ページ番号ボタン
     for (let i = startPage; i <= endPage; i++) {
@@ -179,13 +194,27 @@ function renderPagination(totalItems) {
         paginationContainer.appendChild(pageButton);
     }
 
-    // 末尾に省略記号を追加
-    if (endPage < totalPages) {
-        const ellipsis = document.createElement('span');
-        ellipsis.textContent = '...';
-        ellipsis.classList.add('ellipsis');
-        paginationContainer.appendChild(ellipsis);
+    // 末尾に省略記号と最後のページボタンを追加
+if (endPage < totalPages) {
+    const ellipsis = document.createElement('span');
+    ellipsis.textContent = '...';
+    ellipsis.classList.add('ellipsis');
+    paginationContainer.appendChild(ellipsis);
+
+    // 最後のページボタンを追加
+    const lastPageButton = document.createElement('button');
+    lastPageButton.textContent = totalPages;
+    lastPageButton.classList.add('page-number');
+    if (totalPages === currentPage) {
+        lastPageButton.classList.add('active');
     }
+    lastPageButton.addEventListener('click', () => {
+        currentPage = totalPages;
+        applyFiltersAndSort();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    paginationContainer.appendChild(lastPageButton);
+}
 
     // "Next" button
     const nextButton = document.createElement('button');
