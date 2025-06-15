@@ -366,32 +366,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event delegation for quantity buttons on card container
     document.getElementById('cardContainer').addEventListener('click', (event) => {
-        const target = event.target;
-        if (target.classList.contains('qty-minus') || target.classList.contains('qty-plus')) {
-            const name = target.dataset.name;
-            const input = document.querySelector(`.qty-input[data-name="${name}"]`);
-            
-            let qty = input ? parseInt(input.value) : 0; // inputがnullの場合を考慮
+    const target = event.target;
+    if (target.classList.contains('qty-minus') || target.classList.contains('qty-plus')) {
+        const name = target.dataset.name;
+        const input = document.querySelector(`.qty-input[data-name="${name}"]`);
+        
+        let qty = input ? parseInt(input.value) : 0;
 
-            if (isNaN(qty)) { // input.valueが有効な数値でない場合
-                qty = 0;
-            }
+        if (isNaN(qty)) {
+            qty = 0;
+        }
 
-            if (target.classList.contains('qty-minus')) {
-                qty = Math.max(0, qty - 1);
-            } else if (target.classList.contains('qty-plus')) {
-                // 上限10枚のロジックに変更
-                if (qty < 10) { // 10枚未満の場合のみ増やす
-                    qty += 1;
-                }
-            }
-            
-            if (input) { // input要素が存在する場合のみ値を設定
-                input.value = qty;
-                updateTotal(); // Update total and save to local storage
+        if (target.classList.contains('qty-minus')) {
+            qty = Math.max(0, qty - 1);
+        } else if (target.classList.contains('qty-plus')) {
+            if (qty < 10) {
+                qty += 1;
             }
         }
-    });
+
+        if (input) {
+            input.value = qty; // ← ここを必ず更新！
+        }
+
+        updateTotal(); // 合計金額の再計算
+    }
+});
 
     document.getElementById('searchInput').addEventListener('input', () => {
         currentPage = 1; // Reset page on search input
