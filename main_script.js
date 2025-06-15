@@ -55,9 +55,6 @@ function displayCards(cardsToPaginate) { // Renamed parameter to clarify its pur
             </div>
         `;
         cardContainer.appendChild(cardItem);
-        // HTML内にreadonlyを記述したため、JavaScriptで改めて設定したり、
-        // イベントリスナーで入力をブロックする処理は不要です。
-        // これらは+,-ボタンの動作を妨げる原因となっていました。
     });
 
     updateTotal(); // Update total after displaying cards
