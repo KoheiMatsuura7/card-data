@@ -101,94 +101,66 @@ function updateTotal() {
 }
 
 // ページネーションUIの生成と更新 (Generate and update pagination UI)
-function renderPagination(totalPages, currentPage) {
+function renderPagination(totalItems) {
+    totalPages = Math.ceil(totalItems / itemsPerPage);
     const paginationContainer = document.getElementById('paginationContainer');
-    paginationContainer.innerHTML = ''; // 既存のボタンをクリア
 
-    const maxPageButtons = window.innerWidth <= 768 ? 5 : 10; // スマホは5個、PCは10個
-
-    let startPage = Math.max(1, currentPage - Math.floor(maxPageButtons / 2));
-    let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
-
-    // 端のページでボタンが少なくなる場合の調整
-    if (endPage - startPage + 1 < maxPageButtons) {
-        startPage = Math.max(1, endPage - maxPageButtons + 1);
+    // Ensure paginationContainer exists before proceeding
+    if (!paginationContainer) {
+        console.error("Pagination container not found. Please add <div id='paginationContainer'></div> to your HTML.");
+        return;
     }
 
-    // 「最初へ」ボタン
-    if (currentPage > 1) {
-        const firstButton = document.createElement('button');
-        firstButton.textContent = '最初へ';
-        firstButton.onclick = () => goToPage(1);
-        paginationContainer.appendChild(firstButton);
+    paginationContainer.innerHTML = ''; // Clear existing pagination buttons
+
+    if (totalPages <= 1) {
+        paginationContainer.style.display = 'none'; // Hide if only one page
+        return;
     }
 
-    // 1ページ目へのリンク
-    if (startPage > 1) {
-        const pageButton = document.createElement('button');
-        pageButton.textContent = '1';
-        pageButton.onclick = () => goToPage(1);
-        if (currentPage === 1) {
-            pageButton.classList.add('active');
+    paginationContainer.style.display = 'flex'; // Show if more than one page
+
+    // "Prev" button
+    const prevButton = document.createElement('button');
+    prevButton.textContent = '前へ';
+    prevButton.disabled = currentPage === 1;
+    prevButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            applyFiltersAndSort(); // Re-apply filters and sort to display cards for the new page
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
         }
-        paginationContainer.appendChild(pageButton);
-        if (startPage > 2) {
-            const ellipsis = document.createElement('span');
-            ellipsis.textContent = '...';
-            paginationContainer.appendChild(ellipsis);
-        }
-    }
+    });
+    paginationContainer.appendChild(prevButton);
 
-    // 中心となるページボタン
-    for (let i = startPage; i <= endPage; i++) {
+    // Page number buttons
+    for (let i = 1; i <= totalPages; i++) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
-        pageButton.onclick = () => goToPage(i);
+        pageButton.classList.add('page-number');
         if (i === currentPage) {
-            pageButton.classList.add('active');
+            pageButton.classList.add('active'); // Add 'active' class for the current page
         }
+        pageButton.addEventListener('click', () => {
+            currentPage = i;
+            applyFiltersAndSort(); // Re-apply filters and sort to display cards for the new page
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
+        });
         paginationContainer.appendChild(pageButton);
     }
 
-    // 最終ページへのリンク
-    if (endPage < totalPages) {
-        if (endPage < totalPages - 1) {
-            const ellipsis = document.createElement('span');
-            ellipsis.textContent = '...';
-            paginationContainer.appendChild(ellipsis);
+    // "Next" button
+    const nextButton = document.createElement('button');
+    nextButton.textContent = '次へ';
+    nextButton.disabled = currentPage === totalPages;
+    nextButton.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            applyFiltersAndSort(); // Re-apply filters and sort to display cards for the new page
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top of the page
         }
-        const pageButton = document.createElement('button');
-        pageButton.textContent = totalPages;
-        pageButton.onclick = () => goToPage(totalPages);
-        if (currentPage === totalPages) {
-            pageButton.classList.add('active');
-        }
-        paginationContainer.appendChild(pageButton);
-    }
-
-    // 「最後へ」ボタン
-    if (currentPage < totalPages) {
-        const lastButton = document.createElement('button');
-        lastButton.textContent = '最後へ';
-        lastButton.onclick = () => goToPage(totalPages);
-        paginationContainer.appendChild(lastButton);
-    }
-
-    // 「前へ」ボタン
-    if (currentPage > 1) {
-        const prevButton = document.createElement('button');
-        prevButton.textContent = '前へ';
-        prevButton.onclick = () => goToPage(currentPage - 1);
-        paginationContainer.insertBefore(prevButton, paginationContainer.firstChild);
-    }
-
-    // 「次へ」ボタン
-    if (currentPage < totalPages) {
-        const nextButton = document.createElement('button');
-        nextButton.textContent = '次へ';
-        nextButton.onclick = () => goToPage(currentPage + 1);
-        paginationContainer.appendChild(nextButton);
-    }
+    });
+    paginationContainer.appendChild(nextButton);
 }
 
 // カテゴリとサブカテゴリの動的生成 (Dynamic generation of categories and subcategories)
