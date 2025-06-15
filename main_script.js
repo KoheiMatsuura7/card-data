@@ -171,12 +171,6 @@ function renderPagination(totalItems) {
     });
     paginationContainer.appendChild(firstPageButton);
 
-    // 省略記号
-    const ellipsis = document.createElement('span');
-    ellipsis.textContent = '...';
-    ellipsis.classList.add('ellipsis');
-    paginationContainer.appendChild(ellipsis);
-}
 
     // ページ番号ボタン
     for (let i = startPage; i <= endPage; i++) {
