@@ -57,7 +57,8 @@ function calculateTotal() {
     let total = 0;
     // selectedQuantities から合計を計算する
     for (const itemId in selectedQuantities) {
-        const item = allCards.find(card => card.id === itemId); // IDでカードを検索
+        // itemId が文字列として保存されている可能性があるため、数値型に変換して検索
+        const item = allCards.find(card => String(card.id) === String(itemId)); // IDでカードを検索
         if (item) {
             total += item.price * selectedQuantities[itemId];
         } else {
@@ -80,9 +81,17 @@ function displayCards(cardsToPaginate) {
     const endIndex = startIndex + itemsPerPage;
     const paginatedCards = cardsToPaginate.slice(startIndex, endIndex); // Get cards for the current page
 
+    // 現在のビューを判定 (URLハッシュを使用)
+    const currentView = getCurrentView();
+
     if (paginatedCards.length === 0) {
         // 条件に合うカードがない場合のメッセージ
-        const message = isUnopenedBoxPage ? '条件に合うBOXは見つかりませんでした。' : '該当するカードがありません。';
+        let message = '該当するカードがありません。';
+        if (currentView === 'box') {
+            message = '条件に合うBOXは見つかりませんでした。';
+        } else if (currentView === 'psa') {
+            message = '条件に合うPSAカードは見つかりませんでした。';
+        }
         cardContainer.innerHTML = `<p style="text-align: center; grid-column: 1 / -1;">${message}</p>`;
         renderPagination(cardsToPaginate.length); // Still render pagination even if no cards for current view
         calculateTotal(); // Update total (ensure it's updated even if no cards displayed on current page)
@@ -90,12 +99,12 @@ function displayCards(cardsToPaginate) {
     }
 
     paginatedCards.forEach(card => {
-        // card.id が存在しない場合はエラーを出すか、スキップするか、または仮のIDを割り当てる
-        // ここではidがないと正しく動作しないので、idが必須であることを強調します
-        if (!card.id) {
-            console.error('カードにIDが設定されていません:', card);
-            return; // IDがないカードはスキップ
-        }
+        // card.id が存在しない場合はエラーを出すか、スキップするか、または仮のIDを割り当てる
+        // ここではidがないと正しく動作しないので、idが必須であることを強調します
+        if (card.id === undefined || card.id === null) { // idが数値0の場合も考慮
+            console.error('カードにIDが設定されていません:', card);
+            return; // IDがないカードはスキップ
+        }
 
         const cardItem = document.createElement('div');
         cardItem.className = 'card-item';
@@ -103,12 +112,12 @@ function displayCards(cardsToPaginate) {
         // Get stored quantity from selectedQuantities (using card.id)
         const currentQty = selectedQuantities[card.id] || 0; // Use card.id here
 
-        // 画像パスを card.image または card.imgSrc のいずれか存在する方から取得
-        const imageUrl = card.image || card.imgSrc;
-        if (!imageUrl) {
-            console.warn('カードの画像URLが見つかりません:', card);
-            // 画像がない場合は代替画像やプレースホルダーを表示することも検討
-        }
+        // 画像パスを card.image または card.imgSrc のいずれか存在する方から取得
+        const imageUrl = card.image || card.imgSrc;
+        if (!imageUrl) {
+            console.warn('カードの画像URLが見つかりません:', card);
+            // 画像がない場合は代替画像やプレースホルダーを表示することも検討
+        }
 
         cardItem.innerHTML = `
             <img src="${imageUrl}" alt="${card.name}" loading="lazy">
@@ -234,20 +243,34 @@ function renderPagination(totalItems) {
 }
 
 
-// --- カテゴリとサブカテゴリの動的生成 (Dynamic generation of categories and subcategories) ---
-// この変数で現在のページが未開封BOXページかどうかを判断します
-const path = window.location.pathname;
-// ペライチのURLパスに合わせて '/box-kaito' を使用
-const isUnopenedBoxPage = path.includes('/box-kaito'); // 修正: '/box-kaito' のみに絞るか、正確なURLパスを指定してください
+// --- 現在のビューをURLハッシュから判定する関数 ---
+function getCurrentView() {
+    const hash = window.location.hash; // 例: #box-kaito, #psa-kaito, #card-kaito
+    if (hash.includes('#box-kaito')) {
+        return 'box';
+    } else if (hash.includes('#psa-kaito')) {
+        return 'psa';
+    }
+    return 'card'; // デフォルトはカード表示
+}
 
+// --- カテゴリとサブカテゴリの動的生成 (Dynamic generation of categories and subcategories) ---
 function populateCategories() {
     const categorySelect = document.getElementById('categorySelect');
     const subcategorySelect = document.getElementById('subcategorySelect');
+    const searchInput = document.getElementById('searchInput');
+
+    // 現在のビューを取得
+    const currentView = getCurrentView();
     
-    // 現在のページが未開封BOXページの場合の処理
-    if (isUnopenedBoxPage) {
+    // カテゴリセレクタを一旦クリア
+    categorySelect.innerHTML = '';
+    // サブカテゴリセレクタを一旦クリア
+    subcategorySelect.innerHTML = '<option value="">すべてのサブカテゴリ</option>';
+
+    if (currentView === 'box') {
+        // 未開封BOXページの場合
         categorySelect.innerHTML = '<option value="">すべてのカテゴリ</option>'; // 全カテゴリ表示
-        // カテゴリはBOXのタイプ（遊戯王BOX、ポケカBOXなど）を表示するように調整
         const boxCategories = [...new Set(allCards.filter(card => card.subcategory === "未開封BOX").map(card => card.category))];
         boxCategories.forEach(category => {
             const option = document.createElement('option');
@@ -258,23 +281,43 @@ function populateCategories() {
         subcategorySelect.style.display = 'none'; // 未開封BOXページではサブカテゴリは不要なので非表示
         
         // 検索バーのプレースホルダーもBOX用に調整
-        const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.placeholder = "BOX名を検索...";
             searchInput.setAttribute('aria-label', 'BOX名検索');
         }
 
-    } else {
-        // 通常のカードページの場合の処理
-        const allCategories = [...new Set(allCards.filter(card => card.subcategory !== "未開封BOX").map(card => card.category))]; // 修正: 未開封BOXを除外
+    } else if (currentView === 'psa') {
+        // PSAページの場合 (PSAカテゴリがある場合、それをメインにフィルタリング)
+        categorySelect.innerHTML = '<option value="">すべてのカテゴリ</option>';
+        const psaCategories = [...new Set(allCards.filter(card => card.category === "PSA" || card.subcategory === "PSA").map(card => card.category))];
+        psaCategories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = `${category}PSA`;
+            categorySelect.appendChild(option);
+        });
+        subcategorySelect.style.display = 'none'; // PSAページではサブカテゴリは不要なので非表示
+        if (searchInput) {
+            searchInput.placeholder = "PSAカード名を検索...";
+            searchInput.setAttribute('aria-label', 'PSAカード名検索');
+        }
+
+    } else {
+        // 通常のカードページの場合 (currentView === 'card')
+        const allCategories = [...new Set(allCards.filter(card => card.subcategory !== "未開封BOX" && card.category !== "PSA" && card.subcategory !== "PSA").map(card => card.category))]; // 修正: 未開封BOXとPSAを除外
         const allSubcategories = {};
 
-        allCards.filter(card => card.subcategory !== "未開封BOX").forEach(card => { // 修正: 未開封BOXを除外
+        allCards.filter(card => card.subcategory !== "未開封BOX" && card.category !== "PSA" && card.subcategory !== "PSA").forEach(card => { // 修正: 未開封BOXとPSAを除外
             if (!allSubcategories[card.category]) {
                 allSubcategories[card.category] = new Set();
             }
             allSubcategories[card.category].add(card.subcategory);
         });
+        
+        if (searchInput) {
+            searchInput.placeholder = "カード名を検索...";
+            searchInput.setAttribute('aria-label', 'カード名検索');
+        }
 
         categorySelect.innerHTML = '<option value="">すべてのカテゴリ</option>';
         allCategories.forEach(category => {
@@ -283,30 +326,31 @@ function populateCategories() {
             option.textContent = category;
             categorySelect.appendChild(option);
         });
+        subcategorySelect.style.display = 'inline-block'; // サブカテゴリを表示
 
-        categorySelect.addEventListener('change', () => {
-            currentPage = 1; // Reset page on category change
-            const selectedCategory = categorySelect.value;
-            subcategorySelect.innerHTML = '<option value="">すべてのサブカテゴリ</option>';
-            if (selectedCategory && allSubcategories[selectedCategory]) {
-                subcategorySelect.style.display = 'inline-block';
-                [...allSubcategories[selectedCategory]].sort().forEach(sub => {
-                    const option = document.createElement('option');
-                    option.value = sub;
-                    option.textContent = sub;
-                    subcategorySelect.appendChild(option);
-                });
-            } else {
-                subcategorySelect.style.display = 'none';
-            }
-            applyFiltersAndSort();
-        });
-
-        subcategorySelect.addEventListener('change', () => {
-            currentPage = 1; // Reset page on subcategory change
-            applyFiltersAndSort();
-        });
+        // categorySelect の変更イベントリスナーは、populateCategories の外で設定し、一度だけ追加するようにする
+        // （DOMContentLoaded 内での設定を推奨）
+        const selectedCategory = categorySelect.value;
+        subcategorySelect.innerHTML = '<option value="">すべてのサブカテゴリ</option>';
+        if (selectedCategory && allSubcategories[selectedCategory]) {
+            [...allSubcategories[selectedCategory]].sort().forEach(sub => {
+                const option = document.createElement('option');
+                option.value = sub;
+                option.textContent = sub;
+                subcategorySelect.appendChild(option);
+            });
+        } else {
+            // カテゴリが選択されていない場合やサブカテゴリがない場合
+            // subcategorySelect は表示状態を維持しつつ、デフォルトオプションのみにする
+        }
     }
+
+    // イベントリスナーが複数追加されないように、ここで既存のリスナーを削除してから追加する
+    // (またはDOMContentLoadedで一度だけ設定する)
+    categorySelect.removeEventListener('change', onFilterChange);
+    categorySelect.addEventListener('change', onFilterChange);
+    subcategorySelect.removeEventListener('change', onFilterChange);
+    subcategorySelect.addEventListener('change', onFilterChange);
 }
 
 
@@ -315,21 +359,27 @@ function applyFiltersAndSort() {
     const searchInput = document.getElementById('searchInput').value.toLowerCase();
     const categorySelect = document.getElementById('categorySelect').value;
     const sortSelect = document.getElementById('sortSelect').value;
-    const subcategorySelect = document.getElementById('subcategorySelect').value; // 通常ページで使用
+    const subcategorySelect = document.getElementById('subcategorySelect').value; 
+
+    // 現在のビューを判定
+    const currentView = getCurrentView();
 
     let filteredCards = allCards.filter(card => {
         const matchesSearch = card.name.toLowerCase().includes(searchInput);
         const matchesCategory = categorySelect === '' || card.category === categorySelect;
 
-        // ページによってフィルタリング条件を変更
-        if (isUnopenedBoxPage) {
-            // 未開封BOXページの場合、subcategoryが"未開封BOX"のものを表示
+        // ビューによってフィルタリング条件を変更
+        if (currentView === 'box') {
+            // 未開封BOXビューの場合、subcategoryが"未開封BOX"のものを表示
             return matchesSearch && matchesCategory && card.subcategory === "未開封BOX";
-        } else {
-            // 通常のカードページの場合
+        } else if (currentView === 'psa') {
+            // PSAビューの場合 (PSAカテゴリまたはPSAサブカテゴリのものを表示)
+            return matchesSearch && matchesCategory && (card.category === "PSA" || card.subcategory === "PSA");
+        } else {
+            // 通常のカードビューの場合 (currentView === 'card')
             const matchesSubcategory = subcategorySelect === '' || card.subcategory === subcategorySelect;
-            // 未開封BOXは通常ページでは表示しないようにする
-            return matchesSearch && matchesCategory && matchesSubcategory && card.subcategory !== "未開封BOX";
+            // 未開封BOXとPSAは通常ページでは表示しないようにする
+            return matchesSearch && matchesCategory && matchesSubcategory && card.subcategory !== "未開封BOX" && card.category !== "PSA" && card.subcategory !== "PSA";
         }
     });
 
@@ -359,7 +409,7 @@ function showSelected() {
     for (const itemId in selectedQuantities) {
         const qty = selectedQuantities[itemId];
         if (qty > 0) {
-            const item = allCards.find(card => card.id === itemId);
+            const item = allCards.find(card => String(card.id) === String(itemId)); // IDを文字列として比較
             if (item) {
                 itemsToShow.push({ item: item, qty: qty });
             }
@@ -375,8 +425,8 @@ function showSelected() {
             li.style.alignItems = 'center';
             li.style.marginBottom = '8px';
 
-            // 画像パスを card.image または card.imgSrc のいずれか存在する方から取得
-            const imageUrl = item.image || item.imgSrc;
+            // 画像パスを card.image または card.imgSrc のいずれか存在する方から取得
+            const imageUrl = item.image || item.imgSrc;
 
             const img = document.createElement('img');
             img.src = imageUrl; // 修正: imageUrl を使用
@@ -440,12 +490,25 @@ function printModal() {
     printWindow.close();
 }
 
+// フィルター変更時に呼ばれる共通関数
+function onFilterChange() {
+    currentPage = 1; // フィルター・ソート変更時はページをリセット
+    applyFiltersAndSort();
+}
 
 // イベントリスナーの設定 (Event listener setup)
 document.addEventListener('DOMContentLoaded', () => {
     setItemsPerPage(); // Set itemsPerPage based on initial window size
     populateCategories(); // Generate category options based on page type
     applyFiltersAndSort(); // Initial display of cards (will also call calculateTotal)
+
+    // URLハッシュが変わったときのイベントリスナーを追加
+    window.addEventListener('hashchange', () => {
+        // ハッシュが変わったら現在のビューを再判定し、再表示
+        populateCategories(); // カテゴリセレクタの表示も切り替える
+        applyFiltersAndSort();
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // ページトップへスムーズスクロール
+    });
 
     // Event delegation for quantity buttons on card container
     document.getElementById('cardContainer').addEventListener('click', (event) => {
@@ -480,19 +543,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.getElementById('searchInput').addEventListener('input', () => {
-        currentPage = 1;
-        applyFiltersAndSort();
-    });
-    document.getElementById('sortSelect').addEventListener('change', () => {
-        currentPage = 1;
-        applyFiltersAndSort();
-    });
-    document.getElementById('categorySelect').addEventListener('change', () => {
-        currentPage = 1;
-        applyFiltersAndSort();
-    });
-    // サブカテゴリ選択は populateCategories 内でリスナーを設定しているのでここでは不要
+    document.getElementById('searchInput').addEventListener('input', onFilterChange); // 共通関数を呼び出す
+    document.getElementById('sortSelect').addEventListener('change', onFilterChange); // 共通関数を呼び出す
+    // categorySelect, subcategorySelect のリスナーは populateCategories 内で設定されているが、
+    // DOMContentLoaded で一度だけ設定する方が堅牢。上部に移動した onFilterChange を使う。
 
     document.getElementById('resetButton').addEventListener('click', () => {
         document.getElementById('searchInput').value = '';
@@ -506,14 +560,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         selectedQuantities = {}; // グローバル変数をクリア
         saveSelectedQuantities({}); // LocalStorageもクリア
-
-        // すべての数量入力欄を0にする (現在表示されていないものも含むLocal Storageの反映)
-        // displayCards が呼ばれるとLocalStorageから再ロードされるため、個別にリセットは不要
-        // ただし、もしリセットボタンを押した際に全ページの数量表示もリセットしたい場合は、
-        // displayCardsが呼ばれる前に、DOM上の全qty-inputのvalueを0にする処理が必要です
-        // ここではdisplayCardsが最終的に呼ばれるので、特に変更は加えない
-        // もし、リセット後にすべてのページで数量を0にしたい場合は、以下の行を有効にする
-        // document.querySelectorAll('.qty-input').forEach(input => input.value = 0);
 
         calculateTotal(); // 合計をリセット
         currentPage = 1;
