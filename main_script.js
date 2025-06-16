@@ -222,7 +222,7 @@ if (endPage < totalPages) {
         }
     });
     paginationContainer.appendChild(nextButton);
-}
+
 
 // カテゴリとサブカテゴリの動的生成 (Dynamic generation of categories and subcategories)
 function populateCategories() {
