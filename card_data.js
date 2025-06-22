@@ -614,5 +614,47 @@ const allCards = [
         "subcategory": "PSA鑑定品",
         "price": 330000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/88ce1b40-317c-013e-f707-0a58a9feac02/GXSAPSA.png"
+    },
+    {
+        "name": "アセロラ(395/SM-P)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 2000000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe44daf0-3185-013e-32e4-0a58a9feac02/original.png"
+    },
+    {
+        "name": "N(180/171)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 260000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe374ec0-3185-013e-32e2-0a58a9feac02/N.png"
+    },
+    {
+        "name": "カリン(183/171)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 170000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe3ef1b0-3185-013e-32e3-0a58a9feac02/PSA.png"
+    },
+    {
+        "name": "ゲンガー&ミミッキュGX【SA】(103/095)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 180000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe470530-3185-013e-32e6-0a58a9feac02/original.png"
+    },
+    {
+        "name": "サナ(185/171 )PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 380000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe463b00-3185-013e-32e5-0a58a9feac02/_1.png"
+    },
+    {
+        "name": "オカルトマニア(181/171)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 510000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe487ad0-3185-013e-32e7-0a58a9feac02/original.png"
     }
 ];
