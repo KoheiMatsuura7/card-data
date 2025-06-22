@@ -606,55 +606,62 @@ const allCards = [
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 270000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/88ccfbf0-317c-013e-f706-0a58a9feac02/SAPSA.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e21170-318e-013e-6f00-0a58a9feac02/original.jpg"
     },
     {
         "name": "ピカチュウ＆ゼクロムGX 【SA】(101/095)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 330000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/88ce1b40-317c-013e-f707-0a58a9feac02/GXSAPSA.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e5b8f0-318e-013e-6f05-0a58a9feac02/original.jpg"
     },
     {
         "name": "アセロラ(395/SM-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 2000000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe44daf0-3185-013e-32e4-0a58a9feac02/original.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e3e440-318e-013e-6f02-0a58a9feac02/original.jpg"
     },
     {
         "name": "N(180/171)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 260000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe374ec0-3185-013e-32e2-0a58a9feac02/N.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e782a0-318e-013e-6f08-0a58a9feac02/N.jpg"
     },
     {
         "name": "カリン(183/171)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 170000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe3ef1b0-3185-013e-32e3-0a58a9feac02/PSA.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e6cad0-318e-013e-6f07-0a58a9feac02/original.jpg"
     },
     {
         "name": "ゲンガー&ミミッキュGX【SA】(103/095)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 180000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe470530-3185-013e-32e6-0a58a9feac02/original.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e58a80-318e-013e-6f04-0a58a9feac02/original.jpg"
     },
     {
         "name": "サナ(185/171 )PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 380000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe463b00-3185-013e-32e5-0a58a9feac02/_1.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e6a050-318e-013e-6f06-0a58a9feac02/original.jpg"
     },
     {
         "name": "オカルトマニア(181/171)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 510000,
-        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fe487ad0-3185-013e-32e7-0a58a9feac02/original.png"
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e4a600-318e-013e-6f03-0a58a9feac02/original.jpg"
+    },
+    {
+        "name": "ゲンガーVMAX(020/019 )PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 160000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e2cad0-318e-013e-6f01-0a58a9feac02/gen.jpg"
     }
 ];
