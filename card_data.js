@@ -600,5 +600,19 @@ const allCards = [
         "subcategory": "未開封BOX",
         "price": 7000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/3f8383f0-2c0a-013e-f186-0a58a9feac02/71SyXDvePnL._UF894,1000_QL80_.jpg"
+    },
+    {
+        "name": "ラティアス&ラティオス【SA】(105/095)",
+        "category": "ポケカ",
+        "subcategory": "PSA",
+        "price": 270000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/88ccfbf0-317c-013e-f706-0a58a9feac02/SAPSA.png"
+    },
+    {
+        "name": "ピカチュウ＆ゼクロムGX 【SA】(101/095)",
+        "category": "ポケカ",
+        "subcategory": "PSA",
+        "price": 330000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/88ce1b40-317c-013e-f707-0a58a9feac02/GXSAPSA.png"
     }
 ];
