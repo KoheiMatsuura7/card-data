@@ -663,5 +663,40 @@ const allCards = [
         "subcategory": "PSA鑑定品",
         "price": 160000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52e2cad0-318e-013e-6f01-0a58a9feac02/gen.jpg"
+    },
+    {
+        "name": "ポケモンカードゲーム Classic",
+        "category": "ポケカ",
+        "subcategory": "未開封BOX",
+        "price": 100000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5fd5b3b0-31a9-013e-c03a-0a58a9feac02/original.jpg"
+    },
+    {
+        "name": "伝説の鼓動 ポケモンカードジムセット",
+        "category": "ポケカ",
+        "subcategory": "未開封BOX",
+        "price": 80000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5fd6f2e0-31a9-013e-c03b-0a58a9feac02/kodou.jpg"
+    },
+    {
+        "name": "スペシャルBOX ポケモンセンターヨコハマ",
+        "category": "ポケカ",
+        "subcategory": "未開封BOX",
+        "price": 80000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5fd58950-31a9-013e-c039-0a58a9feac02/yokohama.jpg"
+    },
+    {
+        "name": "スペシャルBOX ポケモンセンターカナザワオープン記念",
+        "category": "ポケカ",
+        "subcategory": "未開封BOX",
+        "price": 30000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5fd1bff0-31a9-013e-c037-0a58a9feac02/kanazawa.jpg"
+    },
+    {
+        "name": "ポケモンワールドチャンピオンシップス2023横浜 記念",
+        "category": "ポケカ",
+        "subcategory": "未開封BOX",
+        "price": 30000,
+        "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5fd37300-31a9-013e-c038-0a58a9feac02/WCS.jpg"
     }
 ];
