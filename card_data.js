@@ -434,13 +434,6 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/d3441230-36de-013e-e4b9-0a58a9feac02/BMG(20th).jpg"
     },
     {
-        "name": "ブラック・マジシャン・ガール(ALIN-JP004)",
-        "category": "遊戯王",
-        "subcategory": "25th",
-        "price": 1000000,
-        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/e6d49e10-367d-013e-f50b-0a58a9feac02/BMG(ALIN).jpg"
-    },
-    {
         "name": "ブラック・マジシャン・ガール(DMMD-JP001)",
         "category": "遊戯王",
         "subcategory": "20th",
