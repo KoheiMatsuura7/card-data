@@ -360,7 +360,7 @@ const allCards = [
         "name": "クレイバースト",
         "category": "ポケカ",
         "subcategory": "未開封BOX",
-        "price": 6000,
+        "price": 9000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/99e1ffd0-31ad-013e-563c-0a58a9feac02/kurei.jpg"
     },
     {
@@ -654,7 +654,7 @@ const allCards = [
         "name": "ポケモンカード151",
         "category": "ポケカ",
         "subcategory": "未開封BOX",
-        "price": 6000,
+        "price": 20000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/99e43c90-31ad-013e-563e-0a58a9feac02/151.jpg"
     },
     {
@@ -913,7 +913,7 @@ const allCards = [
         "name": "ロケット団の栄光",
         "category": "ポケカ",
         "subcategory": "未開封BOX",
-        "price": 6000,
+        "price": 8000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/99e49350-31ad-013e-563f-0a58a9feac02/roket.jpg"
     },
     {
@@ -934,7 +934,7 @@ const allCards = [
         "name": "熱風のアリーナ",
         "category": "ポケカ",
         "subcategory": "未開封BOX",
-        "price": 6000,
+        "price": 7000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/99e2e660-31ad-013e-563d-0a58a9feac02/arina.jpg"
     },
     {
