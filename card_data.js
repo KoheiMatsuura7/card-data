@@ -10,7 +10,7 @@ const allCards = [
         "name": "万物創世龍",
         "category": "遊戯王",
         "subcategory": "10000SEC",
-        "price": 170000,
+        "price": 200000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/afccb110-3652-013e-5147-0a58a9feac02/%E4%B8%87%E7%89%A9%E5%89%B5%E4%B8%96%E9%BE%8D.jpg"
     },
     {
@@ -28,7 +28,7 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/52d89880-36ec-013e-7018-0a58a9feac02/%E5%A4%A9%E3%83%8E%E6%9C%88(RED).jpg"
     },
     {
-        "name": "破壊竜ガンドラ",
+        "name": "破壊竜ガンドラ(ステンレス)",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
         "price": 230000,
@@ -322,7 +322,7 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/2efd6380-36eb-013e-6ffe-0a58a9feac02/%E7%9C%9F%E7%B4%85%E7%9C%BC(20th).jpg"
     },
     {
-        "name": "真紅眼の黒竜",
+        "name": "真紅眼の黒竜(ステンレス)",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
         "price": 800000,
@@ -424,7 +424,7 @@ const allCards = [
         "category": "遊戯王",
         "subcategory": "未開封カード",
         "price": 380000,
-        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/8eb51e60-36df-013e-e4d8-0a58a9feac02/%E3%83%9B%E3%83%AB%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%EF%BC%88%E5%8F%B0%E7%B4%99%E4%BB%98%E3%81%8D%EF%BC%89.jpg"
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/02852010-37a9-013e-d0dc-0a58a9feac02/%E3%83%9B%E3%83%AB%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%EF%BC%88%E5%8F%B0%E7%B4%99%E4%BB%98%E3%81%8D%EF%BC%89.jpg"
     },
     {
         "name": "光の創造神ホルアクティ",
@@ -553,7 +553,7 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/3390ca90-366a-013e-9800-0a58a9feac02/%E6%9A%97%E9%BB%92%E9%A8%8E%E5%A3%AB%E3%82%AC%E3%82%A4%E3%82%A2(PSE%E6%9C%AA%E9%96%8B%E5%B0%81).jpg"
     },
     {
-        "name": "暗黒騎士ガイア",
+        "name": "暗黒騎士ガイア(ステンレス)",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
         "price": 350000,
@@ -623,11 +623,25 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/c99ee680-3684-013e-31ea-0a58a9feac02/BMG(QCAC).jpg"
     },
     {
-        "name": "ブラック・マジシャン・ガール(G3-11/SEC)",
+        "name": "ブラック・マジシャン・ガール(G3-11/SEC)台紙＆封筒付",
         "category": "遊戯王",
         "subcategory": "SE",
         "price": 6500000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0282e680-37a9-013e-d0da-0a58a9feac02/%E3%82%B7%E3%82%AF%E3%82%AC%E3%83%BC%E3%83%AB(%E5%8F%B0%E7%B4%99%E5%B0%81%E7%AD%92%E4%BB%98).jpg"
+    },
+    {
+        "name": "ブラック・マジシャン・ガール(G3-11/SEC)",
+        "category": "遊戯王",
+        "subcategory": "SE",
+        "price": 6300000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/568dccd0-3648-013e-e6b5-0a58a9feac02/%E3%82%B7%E3%82%AF%E3%82%AC%E3%83%BC%E3%83%AB.jpg"
+    },
+    {
+        "name": "ブラック・マジシャン・ガール(G3-11/R)台紙＆封筒付",
+        "category": "遊戯王",
+        "subcategory": "レア",
+        "price": 800000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/02831a20-37a9-013e-d0db-0a58a9feac02/%E5%AD%97%E3%83%AC%E3%82%A2%E3%82%AC%E3%83%BC%E3%83%AB(%E5%8F%B0%E7%B4%99%E5%B0%81%E7%AD%92%E4%BB%98).jpg"
     },
     {
         "name": "ブラック・マジシャン・ガール(G3-11/R)",
@@ -679,7 +693,7 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/336e8a90-366a-013e-97fd-0a58a9feac02/%E3%83%9B%E3%83%AD%E3%82%AC%E3%83%BC%E3%83%AB(%E6%9C%AA%E9%96%8B%E5%B0%81).jpg"
     },
     {
-        "name": "ブラック・マジシャン・ガール",
+        "name": "ブラック・マジシャン・ガール(ステンレス)",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
         "price": 50000,
@@ -742,7 +756,7 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/634314a0-36ea-013e-6fe4-0a58a9feac02/BM(20th).jpg"
     },
     {
-        "name": "ブラック・マジシャン",
+        "name": "ブラック・マジシャン(ステンレス)",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
         "price": 15000,
@@ -962,21 +976,21 @@ const allCards = [
         "name": "side:UNITYスペシャルカードセット",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 230000,
+        "price": 270000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/02129380-3682-013e-31d2-0a58a9feac02/UNITY.jpg"
     },
     {
         "name": "side:PRIDEスペシャルカードセット(トークン付き)",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 230000,
+        "price": 250000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/021311f0-3682-013e-31d4-0a58a9feac02/PRIDE(%E3%83%88%E3%83%BC%E3%82%AF%E3%83%B3%E4%BB%98%E3%81%8D).jpg"
     },
     {
         "name": "side:PRIDEスペシャルカードセット",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 180000,
+        "price": 220000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0212eb00-3682-013e-31d3-0a58a9feac02/PRIDE.jpg"
     },
     {
