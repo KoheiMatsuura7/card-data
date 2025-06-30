@@ -4,7 +4,7 @@ const allCards = [
         "category": "遊戯王",
         "subcategory": "UR",
         "price": 2300000,
-        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/568e7b60-3648-013e-e6b8-0a58a9feac02/%E8%97%8D%E7%9C%BC%E7%99%BD%E9%BE%8D.png"
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/ff9b8570-37a9-013e-d10e-0a58a9feac02/aigan.jpg"
     },
     {
         "name": "万物創世龍",
