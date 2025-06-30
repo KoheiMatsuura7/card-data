@@ -31,7 +31,7 @@ const allCards = [
         "name": "破壊竜ガンドラ",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
-        "price": 200000,
+        "price": 230000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/d05d2eb0-3669-013e-97ef-0a58a9feac02/%E3%82%AC%E3%83%B3%E3%83%89%E3%83%A9%E3%82%B9%E3%83%86%E3%83%B3%E3%83%AC%E3%82%B9.jpg"
     },
     {
@@ -45,7 +45,7 @@ const allCards = [
         "name": "増殖するG(20TH-JPC82)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 40000,
+        "price": 38000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0365a150-3707-013e-95ca-0a58a9feac02/%E5%A2%97G(20th).jpg"
     },
     {
@@ -73,7 +73,7 @@ const allCards = [
         "name": "閃刀姫レイ(QCAC-JP008)",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 7000,
+        "price": 8000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5e859a50-3706-013e-95b5-0a58a9feac02/%E3%83%AC%E3%82%A4(25th).jpg"
     },
     {
@@ -87,7 +87,7 @@ const allCards = [
         "name": "閃刀姫レイ(20CP-JPC02)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 80000,
+        "price": 60000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/6340e710-36ea-013e-6fe2-0a58a9feac02/%E3%83%AC%E3%82%A4(20th).jpg"
     },
     {
@@ -325,7 +325,7 @@ const allCards = [
         "name": "真紅眼の黒竜",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
-        "price": 700000,
+        "price": 800000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a3af0cc0-367e-013e-31c6-0a58a9feac02/%E7%9C%9F%E7%B4%85%E7%9C%BC%E3%82%B9%E3%83%86%E3%83%B3%E3%83%AC%E3%82%B9.jpg"
     },
     {
@@ -388,7 +388,7 @@ const allCards = [
         "name": "死のデッキ破壊ウイルス(初期)",
         "category": "遊戯王",
         "subcategory": "UR",
-        "price": 10000,
+        "price": 25000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0a791ee0-366b-013e-980c-0a58a9feac02/%E6%AD%BB%E3%81%AE%E3%83%87%E3%83%83%E3%82%AD%E7%A0%B4%E5%A3%8A.jpg"
     },
     {
@@ -416,28 +416,28 @@ const allCards = [
         "name": "黒魔女ディアベルスター(AGOV-JP006)",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 10000,
+        "price": 5000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/f49ab0b0-36e1-013e-fb3f-0a58a9feac02/%E3%83%87%E3%82%A3%E3%82%A2%E3%83%99%E3%83%AB%E3%82%B9%E3%82%BF%E3%83%BC.jpg"
     },
     {
         "name": "光の創造神ホルアクティ(台紙付き)",
         "category": "遊戯王",
         "subcategory": "未開封カード",
-        "price": 300000,
+        "price": 380000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/8eb51e60-36df-013e-e4d8-0a58a9feac02/%E3%83%9B%E3%83%AB%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%EF%BC%88%E5%8F%B0%E7%B4%99%E4%BB%98%E3%81%8D%EF%BC%89.jpg"
     },
     {
         "name": "光の創造神ホルアクティ",
         "category": "遊戯王",
         "subcategory": "UR",
-        "price": 250000,
+        "price": 280000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/336e5ea0-366a-013e-97fc-0a58a9feac02/%E3%83%9B%E3%83%AB%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3.jpg"
     },
     {
         "name": "光の創造神ホルアクティ",
         "category": "遊戯王",
         "subcategory": "未開封カード",
-        "price": 280000,
+        "price": 300000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/d084a9a0-3669-013e-97f5-0a58a9feac02/%E3%83%9B%E3%83%AB%E3%82%A2%E3%82%AF%E3%83%86%E3%82%A3%EF%BC%88%E6%9C%AA%E9%96%8B%E5%B0%81%EF%BC%89.jpg"
     },
     {
@@ -451,7 +451,7 @@ const allCards = [
         "name": "誇りと魂の龍(INFO-JP000)",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 35000,
+        "price": 40000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/bc5e2640-36eb-013e-700d-0a58a9feac02/%E8%AA%87%E3%82%8A%E3%81%A8%E9%AD%82.jpg"
     },
     {
@@ -479,7 +479,7 @@ const allCards = [
         "name": "結束と絆の魔導師(DUNE-JP000)",
         "category": "遊戯王",
         "subcategory": "25th",
-        "price": 13000,
+        "price": 14000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/2ed86cc0-36eb-013e-6ff7-0a58a9feac02/%E7%B5%90%E6%9D%9F%E3%81%A8%E7%B5%86(DUNE).jpg"
     },
     {
@@ -528,7 +528,7 @@ const allCards = [
         "name": "灰流うらら(20TH-JPC85)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 65000,
+        "price": 60000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/cfbf5ad0-36f0-013e-0f74-0a58a9feac02/%E3%81%86%E3%82%89%E3%82%89(20th).jpg"
     },
     {
@@ -556,14 +556,14 @@ const allCards = [
         "name": "暗黒騎士ガイア",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
-        "price": 320000,
+        "price": 350000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/75910150-366e-013e-9830-0a58a9feac02/%E3%82%AC%E3%82%A4%E3%82%A2%E3%82%B9%E3%83%86%E3%83%B3%E3%83%AC%E3%82%B9.jpg"
     },
     {
         "name": "レッドアイズブラックメタルドラゴン(初期)",
         "category": "遊戯王",
         "subcategory": "SE",
-        "price": 70000,
+        "price": 100000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/afad2890-3652-013e-5143-0a58a9feac02/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%83%A1%E3%82%BF%E3%83%AB.jpg"
     },
     {
@@ -577,7 +577,7 @@ const allCards = [
         "name": "マジシャンオブブラックカオス(初期)",
         "category": "遊戯王",
         "subcategory": "UR",
-        "price": 20000,
+        "price": 30000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/56adbcc0-3648-013e-e6bc-0a58a9feac02/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AF%E3%82%AB%E3%82%AA%E3%82%B9.jpg"
     },
     {
@@ -647,7 +647,7 @@ const allCards = [
         "name": "ブラック・マジシャン・ガール(DMMD-JP001)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 20000,
+        "price": 18000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/66faf810-3684-013e-31e9-0a58a9feac02/BMG(DMMD).jpg"
     },
     {
@@ -661,7 +661,7 @@ const allCards = [
         "name": "ブラック・マジシャン・ガール(20TH-JPC55)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 100000,
+        "price": 70000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/d3441230-36de-013e-e4b9-0a58a9feac02/BMG(20th).jpg"
     },
     {
@@ -682,7 +682,7 @@ const allCards = [
         "name": "ブラック・マジシャン・ガール",
         "category": "遊戯王",
         "subcategory": "ステンレス製",
-        "price": 60000,
+        "price": 50000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a3b03270-367e-013e-31c8-0a58a9feac02/%E3%82%B9%E3%83%86%E3%83%B3%E3%82%AC%E3%83%BC%E3%83%AB.jpg"
     },
     {
@@ -766,7 +766,7 @@ const allCards = [
         "name": "ゲートガーディアン(初期)",
         "category": "遊戯王",
         "subcategory": "UR",
-        "price": 20000,
+        "price": 30000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/afcce010-3652-013e-5148-0a58a9feac02/%E3%82%B2%E3%83%BC%E3%83%88%E3%82%AC%E3%83%BC%E3%83%87%E3%82%A3%E3%82%A2%E3%83%B3.jpg"
     },
     {
@@ -787,7 +787,7 @@ const allCards = [
         "name": "カオスソルジャー開闢の使者(20CP-JPT03)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 12000,
+        "price": 10000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/336bcea0-366a-013e-97fa-0a58a9feac02/%E9%96%8B%E9%97%A2%E3%81%AE%E4%BD%BF%E8%80%85(20th).jpg"
     },
     {
@@ -808,7 +808,7 @@ const allCards = [
         "name": "カオスソルジャー(通常)",
         "category": "遊戯王",
         "subcategory": "未開封カード",
-        "price": 160000,
+        "price": 180000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/cab4d990-3668-013e-97de-0a58a9feac02/%E3%82%AB%E3%82%AA%E3%82%B9%E3%82%BD%E3%83%AB%E3%82%B8%E3%83%A3%E3%83%BC(%E6%9C%AA%E9%96%8B%E5%B0%81).jpg"
     },
     {
@@ -913,21 +913,21 @@ const allCards = [
         "name": "Worldchampionship2023(封筒セット)",
         "category": "遊戯王",
         "subcategory": "未開封カード",
-        "price": 52000,
+        "price": 50000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/60b13ea0-36dd-013e-e486-0a58a9feac02/2023%E5%B0%81%E7%AD%92.jpg"
     },
     {
         "name": "Worldchampionship2019(封筒セット)",
         "category": "遊戯王",
         "subcategory": "未開封カード",
-        "price": 14000,
+        "price": 18000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/70e67330-3648-013e-47cb-0a58a9feac02/2019%E5%B0%81%E7%AD%92.jpg"
     },
     {
         "name": "Worldchampionship2018(封筒セット)",
         "category": "遊戯王",
         "subcategory": "未開封カード",
-        "price": 100000,
+        "price": 90000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/70ea83d0-3648-013e-47d0-0a58a9feac02/2018%E5%B0%81%E7%AD%92.jpg"
     },
     {
