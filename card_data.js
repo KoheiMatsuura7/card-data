@@ -963,7 +963,7 @@ const allCards = [
         "category": "ポケカ",
         "subcategory": "未開封カード",
         "price": 90000,
-        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5f9ccc17-fa14-4878-bb3b-45730a000054/img/03a5a910-37d8-013e-df2f-0a58a9feac02/%E3%83%93%E3%82%AF%E3%83%86%E3%82%A3%E3%83%8B%EF%BC%88%E6%9C%AA%E9%96%8B%E5%B0%81%EF%BC%89.jpg"
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b8af8fc0-3800-013e-2001-0a58a9feac02/%E3%83%93%E3%82%AF%E3%83%86%E3%82%A3%E3%83%8B%EF%BC%88%E6%9C%AA%E9%96%8B%E5%B0%81%EF%BC%89.jpg"
     },
     {
         "name": "ファイヤー&サンダー&フリーザー【SA】(060/054)",
