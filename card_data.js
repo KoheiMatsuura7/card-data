@@ -479,8 +479,8 @@ const allCards = [
         "name": "カオスソルジャー開闢の使者(20CP-JPT03)",
         "category": "遊戯王",
         "subcategory": "20th",
-        "price": 10000,
-        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/336bcea0-366a-013e-97fa-0a58a9feac02/%E9%96%8B%E9%97%A2%E3%81%AE%E4%BD%BF%E8%80%85(20th).jpg"
+        "price": 9000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/5f9ccc17-fa14-4878-bb3b-45730a000054/img/0d6f5e90-3854-013e-9eee-0a58a9feac02/%E9%96%8B%E9%97%A2%E3%81%AE%E4%BD%BF%E8%80%85(20th).jpg"
     },
     {
         "name": "ガガガガール(DUAD-JPS01)",
