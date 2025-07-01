@@ -416,7 +416,7 @@ const allCards = [
         "name": "オベリスクの巨神兵スリーブ(日本選手権2025)",
         "category": "遊戯王",
         "subcategory": "サプライ",
-        "price": 7000,
+        "price": 5500,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/9012f4e0-3700-013e-204a-0a58a9feac02/%E6%97%A5%E6%9C%AC%E9%81%B8%E6%89%8B%E6%A8%A9%E3%82%B9%E3%83%AA%E3%83%BC%E3%83%96B.jpg"
     },
     {
@@ -957,13 +957,6 @@ const allCards = [
         "subcategory": "CSR",
         "price": 8000,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/87032ae0-2a69-013e-d715-0a58a9feac02/041054_P_PIKACHIXYUUVMAX.jpg"
-    },
-    {
-        "name": "ビクティニ(288/SV-P)未開封",
-        "category": "ポケカ",
-        "subcategory": "未開封カード",
-        "price": 90000,
-        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b8af8fc0-3800-013e-2001-0a58a9feac02/%E3%83%93%E3%82%AF%E3%83%86%E3%82%A3%E3%83%8B%EF%BC%88%E6%9C%AA%E9%96%8B%E5%B0%81%EF%BC%89.jpg"
     },
     {
         "name": "ファイヤー&サンダー&フリーザー【SA】(060/054)",
