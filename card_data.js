@@ -231,7 +231,7 @@ const allCards = [
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/60b13ea0-36dd-013e-e486-0a58a9feac02/2023%E5%B0%81%E7%AD%92.jpg"
     },
     {
-        "name": "アイリス(BW9-082)EX PSA",
+        "name": "アイリス(BW9-082)EX【1st】 PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
         "price": 300000,
@@ -2249,133 +2249,133 @@ const allCards = [
     {
         "name": "ゼクロムGX(239/SM-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 320000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b83224e0-3932-013e-d0ee-0a58a9feac02/%E3%82%BC%E3%82%AF%E3%83%AD%E3%83%A0%E4%BA%89%E5%A5%AA%E6%88%A6.jpg"
     },
     {
         "name": "ミュウツーGX(363/SM-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 180000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0148b160-3931-013e-54c0-0a58a9feac02/%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BCGX%E4%BA%89%E5%A5%AA%E6%88%A6.jpg"
     },
     {
         "name": "リザードンV(103/S-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 200000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0517d2f0-3931-013e-54cb-0a58a9feac02/%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3V%E4%BA%89%E5%A5%AA%E6%88%A6.jpg"
     },
     {
         "name": "ルカリオV(304/SM-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 420000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/051b3c00-3931-013e-54cd-0a58a9feac02/%E3%83%AB%E3%82%AB%E3%83%AA%E3%82%AAV%E4%BA%89%E5%A5%AA%E6%88%A6.jpg"
     },
     {
         "name": "ピカチュウ(400/SM-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 350000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/01488990-3931-013e-35c9-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6400SM-P.jpg"
     },
     {
         "name": "ピカチュウ(227/S-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 180000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/05169ec0-3931-013e-54c9-0a58a9feac02/%E8%A6%8B%E8%BF%94%E3%82%8A%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6PSA.jpg"
     },
     {
         "name": "ピカチュウ(001/030)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 70000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/016da2d0-3931-013e-54c3-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6001030.jpg"
     },
     {
         "name": "ピカチュウ(323/S-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 70000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/014297f0-3931-013e-35c7-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6323S-P.jpg"
     },
     {
         "name": "ピカチュウ(001/015)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 125000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/01e31ee0-3931-013e-54c7-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6001015.jpg"
     },
     {
         "name": "ピカチュウ(208/S-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 16000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb81a200-3930-013e-35c5-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6_NAGABA.jpg"
     },
     {
         "name": "イーブイ(062/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb59da20-3930-013e-35be-0a58a9feac02/%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4(NAGABA).jpg"
     },
     {
         "name": "シャワーズ(063/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb7fa340-3930-013e-35c4-0a58a9feac02/%E3%82%B7%E3%83%A3%E3%83%AF%E3%83%BC%E3%82%BA(NAGABA).jpg"
     },
     {
         "name": "サンダース(064/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb590b10-3930-013e-35bd-0a58a9feac02/%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E3%82%B9(NAGABA).jpg"
     },
     {
         "name": "ブースター(065/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/016e2730-3931-013e-54c4-0a58a9feac02/%E3%83%96%E3%83%BC%E3%82%B9%E3%82%BF%E3%83%BC(NAGABA).jpg"
     },
     {
         "name": "エーフィ(066/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb7d9be0-3930-013e-35c2-0a58a9feac02/%E3%82%A8%E3%83%BC%E3%83%95%E3%82%A3(NAGABA).jpg"
     },
     {
         "name": "ブラッキー(067/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/01dd0b60-3931-013e-54c6-0a58a9feac02/%E3%83%96%E3%83%A9%E3%83%83%E3%82%AD%E3%83%BC(NAGABA).jpg"
     },
     {
         "name": "リーフィア(068/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/016b1fc0-3931-013e-54c2-0a58a9feac02/%E3%83%AA%E3%83%BC%E3%83%95%E3%82%A3%E3%82%A2(NAGABA).jpg"
     },
     {
         "name": "グレイシア(069/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb7a8440-3930-013e-35c1-0a58a9feac02/%E3%82%B0%E3%83%AC%E3%82%A4%E3%82%B7%E3%82%A2(NAGABA).jpg"
     },
     {
         "name": "ニンフィア(070/SV-P)PSA",
         "category": "ポケカ",
-        "subcategory": "プロモ",
+        "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb7eb790-3930-013e-35c3-0a58a9feac02/%E3%83%8B%E3%83%B3%E3%83%95%E3%82%A3%E3%82%A2(NAGABA).jpg"
     }
