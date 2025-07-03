@@ -2306,7 +2306,7 @@ const allCards = [
         "name": "ピカチュウ(001/015)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 125000,
+        "price": 115000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/01e31ee0-3931-013e-54c7-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6001015.jpg"
     },
     {
@@ -2378,5 +2378,131 @@ const allCards = [
         "subcategory": "PSA鑑定品",
         "price": 9000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/fb7eb790-3930-013e-35c3-0a58a9feac02/%E3%83%8B%E3%83%B3%E3%83%95%E3%82%A3%E3%82%A2(NAGABA).jpg"
+    },
+    {
+        "name": "ミュウツーGX(082/072)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 180000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/cf4f9730-3a45-013e-986f-0a58a9feac02/%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BCGX.jpg"
+    },
+    {
+        "name": "イーブイ&カビゴンGX(297/SM-P)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 20000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0abb0650-3a45-013e-9842-0a58a9feac02/%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4%EF%BC%86%E3%82%AB%E3%83%93%E3%82%B4%E3%83%B3GX.jpg"
+    },
+    {
+        "name": "セレビィ&フシギバナGX(097/095)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 20000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0ada3b20-3a45-013e-9848-0a58a9feac02/%E3%82%BB%E3%83%AC%E3%83%93%E3%82%A3%EF%BC%86%E3%83%95%E3%82%B7%E3%82%AE%E3%83%90%E3%83%8AGX.jpg"
+    },
+    {
+        "name": "ゲッコウガ&ゾロアークGX(059/055)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 35000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0abc96f0-3a45-013e-9844-0a58a9feac02/%E3%82%B2%E3%83%83%E3%82%B3%E3%82%A6%E3%82%AC%EF%BC%86%E3%82%BE%E3%83%AD%E3%82%A2%E3%83%BC%E3%82%AFGX.jpg"
+    },
+    {
+        "name": "ルカリオ&メルメタルGX(059/054)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 18000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/1078bf10-3a45-013e-984e-0a58a9feac02/%E3%83%AB%E3%82%AB%E3%83%AA%E3%82%AA%EF%BC%86%E3%83%A1%E3%83%AB%E3%83%A1%E3%82%BF%E3%83%ABGX.jpg"
+    },
+    {
+        "name": "レシラム&リザードンGX(097/095)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 135000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/107a4e20-3a45-013e-9851-0a58a9feac02/%E3%83%AC%E3%82%B7%E3%83%A9%E3%83%A0%EF%BC%86%E3%83%AA%E3%82%B6%E3%83%BC%E3%83%89%E3%83%B3GX.jpg"
+    },
+    {
+        "name": "ガブリアス&ギラティナGX(060/054)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 35000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0abd8620-3a45-013e-9847-0a58a9feac02/%E3%82%AC%E3%83%96%E3%83%AA%E3%82%A2%E3%82%B9&%E3%82%AE%E3%83%A9%E3%83%86%E3%82%A3%E3%83%8AGX.jpg"
+    },
+    {
+        "name": "ファイヤー&サンダー&フリーザーGX(060/054)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 190000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/10781440-3a45-013e-984c-0a58a9feac02/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%A4%E3%83%BC%EF%BC%86%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%EF%BC%86%E3%83%95%E3%83%AA%E3%83%BC%E3%82%B6%E3%83%BC%20GX.jpg"
+    },
+    {
+        "name": "ヤドン&コダックGX(096/094)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 40000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/10799320-3a45-013e-984f-0a58a9feac02/%E3%83%A4%E3%83%89%E3%83%B3%EF%BC%86%E3%82%B3%E3%83%80%E3%83%83%E3%82%AFGX.jpg"
+    },
+    {
+        "name": "ミュウツー&ミュウGX(098/094)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 160000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/10766a60-3a45-013e-984a-0a58a9feac02/%E3%83%9F%E3%83%A5%E3%82%A6%E3%83%84%E3%83%BC%EF%BC%86%E3%83%9F%E3%83%A5%E3%82%A6GX.jpg"
+    },
+    {
+        "name": "メガヤミラミ&バンギラスGX(102/094)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 30000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/107b2470-3a45-013e-9852-0a58a9feac02/%E3%83%A1%E3%82%AC%E3%83%A4%E3%83%9F%E3%83%A9%E3%83%9F%EF%BC%86%E3%83%90%E3%83%B3%E3%82%AE%E3%83%A9%E3%82%B9GX.jpg"
+    },
+    {
+        "name": "フシギバナ&ツタージャGX(066/064)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 12000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/1077e4c0-3a45-013e-984b-0a58a9feac02/%E3%83%95%E3%82%B7%E3%82%AE%E3%83%90%E3%83%8A%EF%BC%86%E3%83%84%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3GX.jpg"
+    },
+    {
+        "name": "リザードン&テールナーGX(068/064)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 50000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/7f5ec7b0-3a46-013e-3102-0a58a9feac02/%E3%83%AC%E3%82%B7%E3%83%A9%E3%83%A0%EF%BC%86%E3%83%86%E3%83%BC%E3%83%AB%E3%83%8A%E3%83%BC.jpg"
+    },
+    {
+        "name": "レシラム&ゼクロムGX(064/049)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 38000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/10971740-3a45-013e-9853-0a58a9feac02/%E3%83%AC%E3%82%B7%E3%83%A9%E3%83%A0%EF%BC%86%E3%82%BC%E3%82%AF%E3%83%AD%E3%83%A0GX.jpg"
+    },
+    {
+        "name": "デデンネGX(175/173)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 12000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0abcea60-3a45-013e-9845-0a58a9feac02/%E3%83%87%E3%83%87%E3%83%B3%E3%83%8DGX.jpg"
+    },
+    {
+        "name": "エーフィ&デオキシスGX(177/173)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 35000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0aba6e00-3a45-013e-9841-0a58a9feac02/%E3%82%A8%E3%83%BC%E3%83%95%E3%82%A3%EF%BC%86%E3%83%87%E3%82%AA%E3%82%AD%E3%82%B7%E3%82%B9GX.jpg"
+    },
+    {
+        "name": "トゲピー&ピィ&ププリンGX(186/173)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 40000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/10784390-3a45-013e-984d-0a58a9feac02/%E3%83%88%E3%82%B2%E3%83%94%E3%83%BC%EF%BC%86%E3%83%94%E3%82%A3%EF%BC%86%E3%83%97%E3%83%97%E3%83%AA%E3%83%B3GX.jpg"
+    },
+    {
+        "name": "イーブイGX(188/173)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 40000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/0abbce50-3a45-013e-9843-0a58a9feac02/%E3%82%A4%E3%83%BC%E3%83%96%E3%82%A4GX.jpg"
     }
 ];
