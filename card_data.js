@@ -2271,7 +2271,7 @@ const allCards = [
         "name": "ルカリオV(304/SM-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 420000,
+        "price": 42000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/051b3c00-3931-013e-54cd-0a58a9feac02/%E3%83%AB%E3%82%AB%E3%83%AA%E3%82%AAV%E4%BA%89%E5%A5%AA%E6%88%A6.jpg"
     },
     {
