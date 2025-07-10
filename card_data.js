@@ -2124,7 +2124,7 @@ const allCards = [
         "name": "熱風のアリーナ",
         "category": "ポケカ",
         "subcategory": "未開封BOX",
-        "price": 7000,
+        "price": 7500,
         "imgSrc": "https://cdn.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/99e2e660-31ad-013e-563d-0a58a9feac02/arina.jpg"
     },
     {
