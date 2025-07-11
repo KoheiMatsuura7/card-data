@@ -3358,5 +3358,19 @@ const allCards = [
         "subcategory": "プロモ",
         "price": 1500000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/5d0d1440-4085-013e-19dd-0a58a9feac02/%E5%A4%8F%E3%83%9D%E3%82%B1%E3%82%AB(%E6%9C%AA%E9%96%8B%E5%B0%81).jpg"
+    },
+    {
+        "name": "ポンチョを着たピカチュウ(230 / XY-P)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 950000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/581bf9a0-409b-013e-ce29-0a58a9feac02/%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6.jpg"
+    },
+    {
+        "name": "ポンチョを着たピカチュウ(231 / XY-P)PSA",
+        "category": "ポケカ",
+        "subcategory": "PSA鑑定品",
+        "price": 1000000,
+        "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/581b93e0-409b-013e-ce28-0a58a9feac02/%E9%BB%92%E3%83%AC%E3%83%83%E3%82%AF%E3%82%A6%E3%82%B6%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6.jpg"
     }
 ];
