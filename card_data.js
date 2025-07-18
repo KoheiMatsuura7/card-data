@@ -535,7 +535,7 @@ const allCards = [
         "name": "かんこうきゃく(192/173)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 230000,
+        "price": 200000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/a8bcfeb0-37bc-013e-841e-0a58a9feac02/%E3%81%8B%E3%82%93%E3%81%8D%E3%82%87%E3%81%86%E3%81%8D%E3%82%83%E3%81%8F.jpg"
     },
     {
@@ -1347,7 +1347,7 @@ const allCards = [
         "name": "マリオピカチュウ(294/XY-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 2100000,
+        "price": 1950000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/70d05400-37ee-013e-f90d-0a58a9feac02/%E3%83%9E%E3%83%AA%E3%82%AA%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6.jpg"
     },
     {
@@ -1494,7 +1494,7 @@ const allCards = [
         "name": "ルイージピカチュウ(296/XY-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 1250000,
+        "price": 1200000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/70cf7e60-37ee-013e-f90b-0a58a9feac02/%E3%83%AB%E3%82%A4%E3%83%BC%E3%82%B8%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6.jpg"
     },
     {
@@ -2250,7 +2250,7 @@ const allCards = [
         "name": "ゼクロムGX(239/SM-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 320000,
+        "price": 340000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b83224e0-3932-013e-d0ee-0a58a9feac02/%E3%82%BC%E3%82%AF%E3%83%AD%E3%83%A0%E4%BA%89%E5%A5%AA%E6%88%A6.jpg"
     },
     {
@@ -2278,7 +2278,7 @@ const allCards = [
         "name": "ピカチュウ(400/SM-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 350000,
+        "price": 330000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/01488990-3931-013e-35c9-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6400SM-P.jpg"
     },
     {
@@ -2299,14 +2299,14 @@ const allCards = [
         "name": "ピカチュウ(323/S-P)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 65000,
+        "price": 62000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/014297f0-3931-013e-35c7-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6323S-P.jpg"
     },
     {
-        "name": "ピカチュウ(001/015)PSA",
+        "name": "ピカチュウV(001/015)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 110000,
+        "price": 100000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/01e31ee0-3931-013e-54c7-0a58a9feac02/%E3%83%94%E3%82%AB%E3%83%81%E3%83%A5%E3%82%A6001015.jpg"
     },
     {
@@ -2565,7 +2565,7 @@ const allCards = [
         "name": "ニンフィアVMAX【SA】(093/069)PSA",
         "category": "ポケカ",
         "subcategory": "PSA鑑定品",
-        "price": 8000,
+        "price": 140000,
         "imgSrc": "https://s3-ap-northeast-1.amazonaws.com/s3.peraichi.com/userData/577d7af7-4e20-4459-b45d-21ac0a00005c/img/b480ed40-3bda-013e-4d15-0a58a9feac02/%E3%83%8B%E3%83%B3%E3%83%95%E3%82%A3%E3%82%A2VMAX%20SA.jpg"
     },
     {
